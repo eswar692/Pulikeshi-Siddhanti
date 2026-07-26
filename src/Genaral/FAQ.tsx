@@ -1,362 +1,689 @@
+"use client";
+
 import { useState } from "react";
-import { ChevronDown, MessageCircle, ArrowRight } from "lucide-react";
-import { person_name, phone_number } from "./secrete";
+import {
+  ChevronDown,
+  MessageCircle,
+  ArrowUpRight,
+  Sparkles,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { person_name, phone_number } from "./secrete";
+
+/* =========================================================
+   FAQ DATA
+   Short questions + quick answers
+========================================================= */
 
 const FAQS = [
   {
-    question: `Can We Meet ${person_name} in Person?`,
-    answer: `Yes, in-person sessions are available with prior appointment. Reach out via WhatsApp or call to schedule your visit at +91 ${phone_number}.`,
-    tag: "Visits",
+    question: "How can I book a consultation?",
+    answer: `Simply contact us on WhatsApp or call +91 ${phone_number}. Our team will help you choose a convenient consultation time.`,
+    tag: "Booking",
   },
   {
-    question: "Is Phone Consultation Available?",
-    answer: `Yes, you can connect via phone from anywhere in India. Our lines are open for consultations at +91 ${phone_number}.`,
-    tag: "Remote",
-  },
-  {
-    question: "What Kind of Consultation Services Are Available?",
+    question: `Can I meet ${person_name} personally?`,
     answer:
-      "We provide Vastu, horoscope reading, career planning, marriage support, health well-being, and business direction consultations — each tailored to your personal situation.",
-    tag: "Services",
+      "Yes. In-person consultations are available by prior appointment. Contact us before your visit to confirm availability.",
+    tag: "Visit",
   },
   {
-    question: "What Kind of Products Are Available?",
+    question: "Can I consult from another city?",
     answer:
-      "Traditional Kerala wellness products, gemstones, and well-being items are available for purchase during or after your consultation session.",
-    tag: "Products",
+      "Yes. Phone consultations are available, so you can speak with us without visiting in person.",
+    tag: "Online",
   },
   {
-    question: "Are Learning Sessions Offered?",
+    question: "What can I discuss in a consultation?",
     answer:
-      "Yes, traditional knowledge learning sessions are offered for different levels — from beginners to those with prior interest in Kerala practices.",
-    tag: "Learning",
+      "You can discuss relationships, marriage, family concerns, career, business, personal decisions, and other life situations.",
+    tag: "Topics",
   },
   {
-    question: "What Is Covered in the Learning Sessions?",
+    question: "What should I share before the session?",
     answer:
-      "We cover horoscope reading, palmistry basics, and traditional Kerala knowledge practices in structured, personalized sessions.",
-    tag: "Curriculum",
+      "Share your main concern and any relevant details requested when booking. This helps us prepare for your consultation.",
+    tag: "Prepare",
+  },
+  {
+    question: "How long does a consultation take?",
+    answer:
+      "The duration depends on your questions and situation. You can confirm the expected session time while booking.",
+    tag: "Duration",
   },
 ];
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 md:py-32 px-5 md:px-10 bg-[#161029] overflow-hidden">
-      {/* Chart-line watermark — same signature motif as other sections */}
-      <svg
-        className="absolute -right-20 -bottom-20 w-96 h-96 pointer-events-none text-[#d4a24e]/[0.05]"
-        viewBox="0 0 200 200"
-        fill="none"
-        aria-hidden="true"
-      >
-        <rect x="2" y="2" width="196" height="196" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M2 2L198 198M198 2L2 198" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M100 2V198M2 100H198" stroke="currentColor" strokeWidth="0.6" />
-      </svg>
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#f3eee6]
+        px-5
+        py-20
+        sm:px-8
+        md:py-28
+        lg:px-10
+      "
+    >
+      {/* =====================================================
+          BACKGROUND DECORATION
+      ===================================================== */}
 
-      {/* Ambient orbs */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(212,162,78,0.08), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[300px] h-[300px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(90,70,150,0.12), transparent 65%)",
-        }}
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[-220px]
+          h-[450px]
+          w-[850px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#e7d3b7]/45
+          blur-[120px]
+        "
       />
 
-      <div className="relative z-10 max-w-[860px] mx-auto">
-        {/* ── Section Header ── */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-[180px]
+          top-[35%]
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-[#eadfd0]/60
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[200px]
+          bottom-[-100px]
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#dfc5a5]/35
+          blur-[130px]
+        "
+      />
+
+      {/* subtle decorative circle */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-32
+          top-20
+          h-[380px]
+          w-[380px]
+          rounded-full
+          border
+          border-[#8b5e3c]/[0.05]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-16
+          top-36
+          h-[250px]
+          w-[250px]
+          rounded-full
+          border
+          border-[#8b5e3c]/[0.05]
+        "
+      />
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="relative z-10 mx-auto max-w-6xl">
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 md:mb-16"
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            margin: "-60px",
+          }}
+          transition={{
+            duration: 0.65,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="
+            mb-12
+            flex
+            flex-col
+            gap-8
+            md:mb-14
+            md:flex-row
+            md:items-end
+            md:justify-between
+          "
         >
-          {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px bg-[linear-gradient(90deg,#d4a24e,transparent)]" />
-            <span
-              className="text-[#d4a24e]/70 tracking-[0.28em] uppercase"
-              style={{ fontFamily: "monospace", fontSize: "0.6rem" }}
+          {/* LEFT */}
+
+          <div>
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#a7754d]" />
+
+              <span
+                className="
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.24em]
+                  text-[#956541]
+                "
+              >
+                Quick Answers
+              </span>
+            </div>
+
+            <h2
+              className="
+                max-w-xl
+                font-serif
+                text-4xl
+                font-semibold
+                leading-[1.1]
+                tracking-[-0.03em]
+                text-[#302820]
+                md:text-5xl
+              "
             >
-              Got Questions?
-            </span>
+              Questions before
+              <span className="block text-[#9b6a43]">
+                your consultation?
+              </span>
+            </h2>
           </div>
 
-          {/* Heading */}
-          <h2
-            className="text-[#fdf6ec] font-bold leading-none mb-1"
-            style={{
-              fontFamily: "'Cinzel Decorative', 'Playfair Display', serif",
-              fontSize: "clamp(1.8rem, 4vw, 3rem)",
-            }}
-          >
-            Frequently Asked
-          </h2>
-          <h2
-            className="text-[#d4a24e] font-bold leading-none"
-            style={{
-              fontFamily: "'Cinzel Decorative', 'Playfair Display', serif",
-              fontSize: "clamp(1.8rem, 4vw, 3rem)",
-            }}
-          >
-            Questions
-          </h2>
-
-          {/* Rule + subtitle */}
-          <div className="flex items-center gap-3 mt-5 mb-4">
-            <div className="h-px w-10 bg-[linear-gradient(90deg,#d4a24e,transparent)]" />
-            <div className="w-1.5 h-1.5 bg-[#d4a24e] rotate-45" />
-            <div className="w-1 h-1 bg-[#d4a24e]/30 rotate-45" />
-          </div>
+          {/* RIGHT DESCRIPTION */}
 
           <p
-            className="max-w-md leading-relaxed"
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "0.9rem",
-              fontWeight: 300,
-              color: "rgba(253,246,236,0.4)",
-            }}
+            className="
+              max-w-sm
+              text-[14px]
+              leading-7
+              text-[#756b62]
+              md:text-[15px]
+            "
           >
-            Clear answers to help you understand our consultation process and
-            what to expect from your session.
+            Everything you need to know before booking your session,
+            explained simply.
           </p>
         </motion.div>
 
-        {/* ── FAQ List ── */}
-        <div className="space-y-2.5">
+        {/* =================================================
+            MAIN FAQ BOX
+        ================================================= */}
+
+        <div
+          className="
+            overflow-hidden
+            rounded-[28px]
+            border
+            border-[#4c3929]/[0.08]
+            bg-[#fffdf9]
+            shadow-[0_18px_60px_rgba(65,45,25,0.08)]
+          "
+        >
           {FAQS.map((faq, index) => (
             <FAQItem
               key={index}
               faq={faq}
               index={index}
               isOpen={openIndex === index}
-              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+              isLast={index === FAQS.length - 1}
+              onToggle={() =>
+                setOpenIndex(openIndex === index ? null : index)
+              }
             />
           ))}
         </div>
 
-        {/* ── Bottom CTA ── */}
+        {/* =================================================
+            BOTTOM CTA
+        ================================================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-5 px-6 py-5 rounded-xl"
-          style={{
-            background: "rgba(212,162,78,0.05)",
-            border: "1px solid rgba(212,162,78,0.12)",
+          initial={{
+            opacity: 0,
+            y: 20,
           }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: 0.15,
+          }}
+          className="
+            relative
+            mt-8
+            overflow-hidden
+            rounded-[24px]
+            bg-[#34271e]
+            px-6
+            py-7
+            sm:px-8
+            md:flex
+            md:items-center
+            md:justify-between
+          "
         >
-          <div className="flex items-center gap-3">
-            <div className="w-1.5 h-1.5 bg-[#d4a24e] rotate-45 flex-shrink-0" />
-            <p
-              className="text-center sm:text-left"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.85rem",
-                fontWeight: 300,
-                color: "rgba(253,246,236,0.55)",
-              }}
-            >
-              Still have questions?{" "}
-              <span className="text-[#fdf6ec]/80 font-medium">
-                We're happy to help personally.
+          {/* CTA glow */}
+
+          <div
+            className="
+              pointer-events-none
+              absolute
+              -right-20
+              -top-32
+              h-[300px]
+              w-[300px]
+              rounded-full
+              bg-[#b9875c]/20
+              blur-[70px]
+            "
+          />
+
+          {/* CTA LEFT */}
+
+          <div className="relative z-10">
+
+            <div className="mb-2 flex items-center gap-2">
+              <Sparkles
+                size={14}
+                className="text-[#d6ae88]"
+              />
+
+              <span
+                className="
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.18em]
+                  text-[#d6ae88]
+                "
+              >
+                Need more help?
               </span>
+            </div>
+
+            <h3
+              className="
+                font-serif
+                text-xl
+                font-semibold
+                text-[#fffaf4]
+                sm:text-2xl
+              "
+            >
+              Have a question not listed here?
+            </h3>
+
+            <p
+              className="
+                mt-2
+                max-w-lg
+                text-sm
+                leading-6
+                text-white/55
+              "
+            >
+              Send us a message and we'll help you with your
+              consultation questions.
             </p>
           </div>
+
+          {/* CTA BUTTON */}
 
           <motion.a
             href={`https://wa.me/${phone_number}`}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            className="group flex-shrink-0 inline-flex items-center gap-2.5 no-underline px-6 py-3 rounded-full font-semibold tracking-[0.08em] uppercase text-[#1a1330]"
-            style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: "0.78rem",
-              background: "linear-gradient(135deg, #c1622f, #d4a24e)",
-              boxShadow: "0 4px 20px rgba(212,162,78,0.3)",
+            whileHover={{
+              y: -2,
             }}
+            whileTap={{
+              scale: 0.98,
+            }}
+            className="
+              group
+              relative
+              z-10
+              mt-6
+              inline-flex
+              w-full
+              items-center
+              justify-center
+              gap-3
+              rounded-full
+              bg-[#fffaf4]
+              px-6
+              py-3.5
+              text-[12px]
+              font-semibold
+              uppercase
+              tracking-[0.08em]
+              text-[#34271e]
+              no-underline
+              shadow-lg
+              transition-colors
+              hover:bg-white
+              md:mt-0
+              md:w-auto
+            "
           >
-            <MessageCircle size={13} strokeWidth={2.5} />
-            Chat With Us
-            <ArrowRight
-              size={12}
-              strokeWidth={2.5}
-              className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-200"
+            <MessageCircle
+              size={15}
+              strokeWidth={2}
+            />
+
+            Ask on WhatsApp
+
+            <ArrowUpRight
+              size={15}
+              className="
+                transition-transform
+                duration-300
+                group-hover:-translate-y-0.5
+                group-hover:translate-x-0.5
+              "
             />
           </motion.a>
         </motion.div>
 
-        {/* Trust line */}
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <div className="w-1 h-1 bg-[#d4a24e]/30 rotate-45" />
-          <p
-            className="text-[#d4a24e]/40 tracking-[0.2em] uppercase"
-            style={{ fontFamily: "monospace", fontSize: "0.58rem" }}
+        {/* BOTTOM TRUST TEXT */}
+
+        <div
+          className="
+            mt-8
+            flex
+            items-center
+            justify-center
+            gap-3
+          "
+        >
+          <span className="h-px w-7 bg-[#9b6a43]/20" />
+
+          <span
+            className="
+              text-center
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-[0.2em]
+              text-[#8c725e]/60
+            "
           >
-            Trusted Guidance &nbsp;·&nbsp; Calm Insights &nbsp;·&nbsp; Personal
-            Clarity
-          </p>
-          <div className="w-1 h-1 bg-[#d4a24e]/30 rotate-45" />
+            Personal · Simple · Confidential
+          </span>
+
+          <span className="h-px w-7 bg-[#9b6a43]/20" />
         </div>
       </div>
-
-      {/* Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap');
-      `}</style>
     </section>
   );
 }
 
-// ─── FAQ Item ─────────────────────────────────────────────────────────────────
+/* =========================================================
+   FAQ ITEM
+========================================================= */
 
 const FAQItem = ({
   faq,
   index,
   isOpen,
+  isLast,
   onToggle,
 }: {
   faq: (typeof FAQS)[number];
   index: number;
   isOpen: boolean;
+  isLast: boolean;
   onToggle: () => void;
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.06,
-        ease: [0.16, 1, 0.3, 1],
+        duration: 0.45,
+        delay: index * 0.04,
       }}
-      className="rounded-xl overflow-hidden transition-all duration-300"
-      style={{
-        background: isOpen
-          ? "linear-gradient(160deg, #241c3d 0%, #1a1330 100%)"
-          : "rgba(253,246,236,0.03)",
-        border: isOpen
-          ? "1px solid rgba(212,162,78,0.25)"
-          : "1px solid rgba(253,246,236,0.06)",
-      }}
-    >
-      {/* Question row */}
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 cursor-pointer"
-      >
-        <div className="flex items-center gap-4 flex-1 min-w-0">
-          {/* Index */}
-          <span
-            className="flex-shrink-0 transition-colors duration-300"
-            style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: "0.7rem",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              color: isOpen ? "rgba(212,162,78,0.7)" : "rgba(253,246,236,0.18)",
-            }}
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
+      className={`
+        relative
+        transition-colors
+        duration-300
 
-          {/* Tag pill */}
+        ${isOpen ? "bg-[#f8f1e7]" : "bg-transparent"}
+
+        ${
+          !isLast
+            ? "border-b border-[#4c3929]/[0.07]"
+            : ""
+        }
+      `}
+    >
+      {/* QUESTION */}
+
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="
+          group
+          flex
+          w-full
+          items-center
+          gap-4
+          px-5
+          py-5
+          text-left
+          sm:gap-5
+          sm:px-7
+          sm:py-6
+        "
+      >
+        {/* NUMBER */}
+
+        <span
+          className={`
+            hidden
+            w-8
+            flex-shrink-0
+            font-serif
+            text-[12px]
+            transition-colors
+            sm:block
+
+            ${
+              isOpen
+                ? "text-[#9b6a43]"
+                : "text-[#302820]/25"
+            }
+          `}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        {/* TEXT */}
+
+        <div className="min-w-0 flex-1">
+
+          {/* TAG */}
+
           <span
-            className="flex-shrink-0 hidden sm:inline-block px-2 py-0.5 rounded-full text-[0.55rem] tracking-[0.12em] uppercase font-semibold transition-all duration-300"
-            style={{
-              fontFamily: "monospace",
-              background: isOpen
-                ? "rgba(212,162,78,0.12)"
-                : "rgba(253,246,236,0.05)",
-              border: isOpen
-                ? "1px solid rgba(212,162,78,0.28)"
-                : "1px solid rgba(253,246,236,0.08)",
-              color: isOpen ? "rgba(212,162,78,0.85)" : "rgba(253,246,236,0.3)",
-            }}
+            className={`
+              mb-1.5
+              block
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-[0.16em]
+              transition-colors
+
+              ${
+                isOpen
+                  ? "text-[#9b6a43]"
+                  : "text-[#88776a]/50"
+              }
+            `}
           >
             {faq.tag}
           </span>
 
-          {/* Question text */}
-          <span
-            className="leading-snug transition-colors duration-200 truncate"
-            style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: "clamp(0.78rem, 1.2vw, 0.9rem)",
-              fontWeight: 600,
-              letterSpacing: "0.02em",
-              color: isOpen ? "#e8bc6e" : "rgba(253,246,236,0.85)",
-            }}
+          {/* QUESTION TEXT */}
+
+          <h3
+            className={`
+              pr-2
+              font-serif
+              text-[16px]
+              font-semibold
+              leading-snug
+              transition-colors
+              sm:text-[17px]
+
+              ${
+                isOpen
+                  ? "text-[#805738]"
+                  : "text-[#332b25] group-hover:text-[#805738]"
+              }
+            `}
           >
             {faq.question}
-          </span>
+          </h3>
         </div>
 
-        {/* Chevron button */}
-        <div
-          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300"
-          style={{
-            background: isOpen
-              ? "rgba(212,162,78,0.12)"
-              : "rgba(253,246,236,0.05)",
-            border: isOpen
-              ? "1px solid rgba(212,162,78,0.28)"
-              : "1px solid rgba(253,246,236,0.09)",
-            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-          }}
+        {/* + / CHEVRON */}
+
+        <span
+          className={`
+            flex
+            h-10
+            w-10
+            flex-shrink-0
+            items-center
+            justify-center
+            rounded-full
+            border
+            transition-all
+            duration-300
+
+            ${
+              isOpen
+                ? `
+                  rotate-180
+                  border-[#9b6a43]
+                  bg-[#9b6a43]
+                  text-white
+                `
+                : `
+                  border-[#4c3929]/10
+                  bg-white
+                  text-[#806650]
+                  group-hover:border-[#9b6a43]/30
+                `
+            }
+          `}
         >
           <ChevronDown
-            size={14}
-            style={{ color: isOpen ? "#d4a24e" : "rgba(253,246,236,0.35)" }}
-            strokeWidth={2}
+            size={17}
+            strokeWidth={1.8}
           />
-        </div>
+        </span>
       </button>
 
-      {/* Answer — animated with Framer Motion */}
+      {/* =====================================================
+          ANSWER
+      ===================================================== */}
+
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
+            transition={{
+              height: {
+                duration: 0.35,
+                ease: [0.16, 1, 0.3, 1],
+              },
+              opacity: {
+                duration: 0.22,
+              },
+            }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6">
-              {/* Separator */}
-              <div
-                className="w-full h-px mb-4"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(212,162,78,0.3), transparent)",
-                }}
-              />
+            <div
+              className="
+                px-5
+                pb-6
+                sm:pl-[4.75rem]
+                sm:pr-20
+              "
+            >
+              {/* Accent line */}
+
+              <div className="mb-3 h-[2px] w-8 rounded-full bg-[#b9875c]" />
+
               <p
-                className="leading-relaxed"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "0.85rem",
-                  fontWeight: 300,
-                  color: "rgba(253,246,236,0.55)",
-                  paddingLeft: "calc(1.5rem + 2.5rem)", // aligns under question text
-                }}
+                className="
+                  max-w-2xl
+                  text-[14px]
+                  leading-7
+                  text-[#70655c]
+                "
               >
                 {faq.answer}
               </p>

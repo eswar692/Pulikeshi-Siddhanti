@@ -1,4 +1,5 @@
 "use client";
+
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Quote, Star } from "lucide-react";
@@ -9,134 +10,484 @@ const testimonials = [
     name: "Arjun Verma",
     location: "Mumbai",
     image: "https://astrologerdeepaksharma.in/images/client-2.png",
-    text: `${person_name} Ji gave me clear direction during a difficult stretch in my business. I came to him after a significant loss, unsure what to do next — the remedies he suggested were practical, easy to follow, and started showing results within weeks. I finally felt like someone understood the full picture, not just the surface problem.`,
+    text: `${person_name} Ji gave me clear direction during a difficult stretch in my business. I came to him after a significant loss, unsure what to do next — the remedies he suggested were practical, easy to follow, and started showing results within weeks.`,
   },
   {
     name: "Mala Kapoor",
     location: "Goa",
     image: "https://astrologerdeepaksharma.in/images/client-1.png",
-    text: `I've consulted Pandith ${person_name} several times over the past two years, and every reading has been remarkably accurate. What I appreciate most is that he doesn't just tell you what's coming — he explains the timing and reasoning behind it, so you feel equipped rather than just told what to expect.`,
+    text: `I've consulted Pandith ${person_name} several times over the past two years. What I appreciate most is that he explains the timing and reasoning clearly, so you leave the consultation with a better understanding of your situation.`,
   },
   {
     name: "Pratha Kumari",
     location: "Delhi",
     image: "https://astrologerdeepaksharma.in/images/client-2.png",
-    text: "My children suddenly became distant and stopped listening to me at home. I was genuinely worried and didn't know where to turn. His guidance gave us a structured way to reconnect, and within a couple of months our home felt calm again — the changes he suggested were small but made a real difference.",
+    text: "I was worried about growing distance within my family and didn't know how to approach it. His guidance helped us look at the situation differently and take small steps toward better communication at home.",
   },
   {
     name: "Vikram Rao",
     location: "Hyderabad",
     image: "https://astrologerdeepaksharma.in/images/client-1.png",
-    text: `Before a major career decision, I wanted a second opinion beyond just logic and spreadsheets. ${person_name} Ji's horoscope reading gave me clarity on timing I hadn't considered, and looking back a year later, the advice held up completely. I recommend him to anyone standing at a crossroads.`,
+    text: `Before an important career decision, I wanted another perspective. ${person_name} Ji listened carefully and gave me guidance that helped me think more clearly about the timing and direction of my next step.`,
   },
   {
     name: "Sunitha Reddy",
     location: "Vijayawada",
     image: "https://astrologerdeepaksharma.in/images/client-2.png",
-    text: "The Vastu consultation for our new home was thorough and thoughtful — he walked through every room and explained the reasoning behind each suggestion instead of giving vague instructions. Small, affordable changes, but the difference in how the house feels is noticeable every single day.",
+    text: "The consultation for our new home was detailed and easy to understand. Every suggestion was explained clearly, and I especially appreciated that the recommendations were practical rather than complicated.",
   },
   {
     name: "Karthik Nair",
     location: "Kochi",
     image: "https://astrologerdeepaksharma.in/images/client-1.png",
-    text: `Since I live abroad, phone consultation was my only option — and it turned out to be just as detailed as an in-person session. ${person_name} Ji took the time to understand my situation fully before offering guidance. Deeply grateful for the clarity and peace of mind it brought.`,
+    text: `Since I live abroad, I chose a phone consultation. ${person_name} Ji took time to understand my questions before giving guidance, and the conversation gave me much-needed clarity about my situation.`,
   },
 ];
 
 export default function Testimonials() {
   const [emblaRef] = useEmblaCarousel(
-    { loop: true, align: "start", dragFree: true },
-    [Autoplay({ delay: 4500, stopOnInteraction: false })],
+    {
+      loop: true,
+      align: "start",
+      dragFree: true,
+    },
+    [
+      Autoplay({
+        delay: 4500,
+        stopOnInteraction: false,
+      }),
+    ]
   );
 
   return (
-    <section className="relative overflow-hidden bg-[#161029] px-6 py-20 sm:px-10 lg:px-16">
-      {/* Chart-line watermark — same signature motif used across the site */}
-      <svg
-        className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 text-[#d4a24e]/[0.05]"
-        viewBox="0 0 200 200"
-        fill="none"
-        aria-hidden="true"
-      >
-        <rect x="2" y="2" width="196" height="196" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M2 2L198 198M198 2L2 198" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M100 2V198M2 100H198" stroke="currentColor" strokeWidth="0.6" />
-      </svg>
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[220px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(212,162,78,0.08),transparent_70%)]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(90,70,150,0.12),transparent_65%)]" />
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#f3eee6]
+        px-5
+        py-20
+        sm:px-8
+        md:py-28
+        lg:px-12
+      "
+    >
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
 
-      <div className="relative mx-auto max-w-7xl text-center">
-        {/* Eyebrow */}
-        <div className="mb-4 flex items-center justify-center gap-3">
-          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#d4a24e]" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d4a24e]">
-            Client Voices
-          </span>
-          <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#d4a24e]" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[-250px]
+          h-[500px]
+          w-[900px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#e6ceb0]/40
+          blur-[130px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-[220px]
+          bottom-[-120px]
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#eadccc]/60
+          blur-[130px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[180px]
+          top-[35%]
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-[#dfc2a0]/30
+          blur-[120px]
+        "
+      />
+
+      {/* giant decorative quote */}
+
+      <Quote
+        strokeWidth={1}
+        className="
+          pointer-events-none
+          absolute
+          -right-8
+          top-12
+          h-[220px]
+          w-[220px]
+          rotate-6
+          text-[#805738]/[0.035]
+          md:h-[300px]
+          md:w-[300px]
+        "
+      />
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
+        <div
+          className="
+            mb-12
+            flex
+            flex-col
+            gap-7
+            md:mb-14
+            md:flex-row
+            md:items-end
+            md:justify-between
+          "
+        >
+          <div className="max-w-2xl">
+
+            {/* EYEBROW */}
+
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px w-9 bg-[#9b6842]" />
+
+              <span
+                className="
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.25em]
+                  text-[#95623e]
+                "
+              >
+                Client Experiences
+              </span>
+            </div>
+
+            {/* HEADING */}
+
+            <h2
+              className="
+                font-serif
+                text-4xl
+                font-semibold
+                leading-[1.08]
+                tracking-[-0.035em]
+                text-[#302820]
+                md:text-5xl
+                lg:text-[54px]
+              "
+            >
+              Stories shared by
+              <span className="block text-[#9b6842]">
+                our clients.
+              </span>
+            </h2>
+          </div>
+
+          {/* DESCRIPTION */}
+
+          <p
+            className="
+              max-w-sm
+              text-[14px]
+              leading-7
+              text-[#756b62]
+              md:text-[15px]
+            "
+          >
+            Experiences shared by people who consulted{" "}
+            <span className="font-semibold text-[#805738]">
+              {person_name}
+            </span>{" "}
+            for guidance through important moments in their lives.
+          </p>
         </div>
 
-        <h2 className="font-serif text-4xl font-bold text-[#fdf6ec] md:text-5xl">
-          What Our Clients Say
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#fdf6ec]/50">
-          Real experiences from people who found clarity and direction with{" "}
-          <span className="font-medium text-[#d4a24e]">{person_name}</span>.
-        </p>
+        {/* =================================================
+            CAROUSEL
+        ================================================= */}
 
-        {/* Carousel */}
-        <div className="mt-16 overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">
+        <div
+          ref={emblaRef}
+          className="overflow-hidden"
+        >
+          <div className="-ml-4 flex sm:-ml-5 lg:-ml-6">
+
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+                className="
+                  min-w-0
+                  flex-[0_0_90%]
+                  pl-4
+
+                  sm:flex-[0_0_52%]
+                  sm:pl-5
+
+                  lg:flex-[0_0_34%]
+                  lg:pl-6
+                "
               >
-                <div className="group relative flex h-full flex-col rounded-2xl border border-[#d4a24e]/12 bg-[#241c3d] p-7 text-left shadow-xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:border-[#d4a24e]/28">
-                  <Quote
-                    size={22}
-                    className="absolute right-6 top-6 text-[#d4a24e]/20 transition-transform duration-300 group-hover:scale-110"
+                {/* =========================================
+                    TESTIMONIAL CARD
+                ========================================= */}
+
+                <article
+                  className="
+                    group
+                    relative
+                    flex
+                    h-full
+                    min-h-[380px]
+                    flex-col
+                    overflow-hidden
+                    rounded-[26px]
+                    border
+                    border-[#493629]/[0.07]
+                    bg-[#fffdf9]
+                    p-6
+                    shadow-[0_10px_35px_rgba(62,44,28,0.07)]
+
+                    transition-all
+                    duration-500
+
+                    hover:-translate-y-1
+                    hover:shadow-[0_18px_45px_rgba(62,44,28,0.12)]
+
+                    sm:p-7
+                  "
+                >
+                  {/* =====================================
+                      TOP
+                  ===================================== */}
+
+                  <div className="flex items-start justify-between gap-4">
+
+                    {/* STARS */}
+
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star
+                          key={s}
+                          size={14}
+                          strokeWidth={1.5}
+                          fill="currentColor"
+                          className="text-[#b9824f]"
+                        />
+                      ))}
+                    </div>
+
+                    {/* QUOTE ICON */}
+
+                    <Quote
+                      size={30}
+                      strokeWidth={1.3}
+                      className="
+                        text-[#b9824f]/20
+                        transition-transform
+                        duration-500
+                        group-hover:scale-110
+                      "
+                    />
+                  </div>
+
+                  {/* =====================================
+                      REVIEW
+                  ===================================== */}
+
+                  <p
+                    className="
+                      mt-7
+                      flex-1
+                      font-serif
+                      text-[16px]
+                      leading-[1.8]
+                      text-[#51473f]
+                      sm:text-[17px]
+                    "
+                  >
+                    “{t.text}”
+                  </p>
+
+                  {/* =====================================
+                      DIVIDER
+                  ===================================== */}
+
+                  <div
+                    className="
+                      my-6
+                      h-px
+                      w-full
+                      bg-gradient-to-r
+                      from-[#9b6842]/20
+                      via-[#9b6842]/10
+                      to-transparent
+                    "
                   />
 
-                  {/* Header: small avatar + name/location */}
-                  <div className="flex items-center gap-3">
-                    <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[#d4a24e]/30">
+                  {/* =====================================
+                      PERSON
+                  ===================================== */}
+
+                  <div className="flex items-center gap-3.5">
+
+                    {/* AVATAR */}
+
+                    <div
+                      className="
+                        h-12
+                        w-12
+                        shrink-0
+                        overflow-hidden
+                        rounded-full
+                        bg-[#eee3d5]
+                        ring-2
+                        ring-[#9b6842]/10
+                        ring-offset-2
+                        ring-offset-[#fffdf9]
+                      "
+                    >
                       <img
                         src={t.image}
                         alt={t.name}
-                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        className="
+                          h-full
+                          w-full
+                          object-cover
+                        "
                       />
                     </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-[#fdf6ec]">
+
+                    {/* NAME */}
+
+                    <div className="min-w-0">
+
+                      <h3
+                        className="
+                          truncate
+                          text-[14px]
+                          font-semibold
+                          text-[#302820]
+                        "
+                      >
                         {t.name}
                       </h3>
-                      <span className="text-xs uppercase tracking-wide text-[#d4a24e]/60">
-                        {t.location}
-                      </span>
+
+                      <div className="mt-1 flex items-center gap-2">
+
+                        <span
+                          className="
+                            h-1
+                            w-1
+                            rounded-full
+                            bg-[#ad7950]
+                          "
+                        />
+
+                        <span
+                          className="
+                            text-[10px]
+                            font-medium
+                            uppercase
+                            tracking-[0.15em]
+                            text-[#89786a]
+                          "
+                        >
+                          {t.location}
+                        </span>
+
+                      </div>
                     </div>
+
+                    {/* NUMBER */}
+
+                    <span
+                      className="
+                        ml-auto
+                        font-serif
+                        text-[12px]
+                        text-[#6d5949]/25
+                      "
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
                   </div>
 
-                  {/* Rating */}
-                  <div className="mt-4 flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star
-                        key={s}
-                        size={13}
-                        fill="#d4a24e"
-                        className="text-[#d4a24e]"
-                      />
-                    ))}
-                  </div>
+                  {/* subtle hover accent */}
 
-                  {/* Testimonial text */}
-                  <p className="mt-4 text-sm italic leading-relaxed text-[#fdf6ec]/70">
-                    "{t.text}"
-                  </p>
-                </div>
+                  <div
+                    className="
+                      absolute
+                      inset-x-8
+                      bottom-0
+                      h-[2px]
+                      origin-left
+                      scale-x-0
+                      rounded-full
+                      bg-[#a66f45]
+
+                      transition-transform
+                      duration-500
+
+                      group-hover:scale-x-100
+                    "
+                  />
+
+                </article>
               </div>
             ))}
+
           </div>
         </div>
+
+        {/* =================================================
+            BOTTOM
+        ================================================= */}
+
+        <div
+          className="
+            mt-9
+            flex
+            items-center
+            justify-center
+            gap-3
+          "
+        >
+          <span className="h-px w-8 bg-[#9b6842]/20" />
+
+          <span
+            className="
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-[0.2em]
+              text-[#806b59]/55
+            "
+          >
+            Shared Experiences
+          </span>
+
+          <span className="h-px w-8 bg-[#9b6842]/20" />
+        </div>
+
       </div>
     </section>
   );

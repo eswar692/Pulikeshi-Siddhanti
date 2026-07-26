@@ -1,17 +1,23 @@
+"use client";
+
 import { MessagesSquare, PhoneCall } from "lucide-react";
 import { motion } from "motion/react";
 import { phone_number, whatsapp_number } from "./secrete";
 
 const CallToAction = () => {
   return (
-    <div className="w-full fixed bottom-6 left-0 flex gap-4 px-4 z-50 lg:hidden">
+    <>
       <WhatsappBtn />
       <CallBtn />
-    </div>
+    </>
   );
 };
 
 export default CallToAction;
+
+/* =========================================================
+   WHATSAPP — BOTTOM LEFT
+========================================================= */
 
 const WhatsappBtn = () => {
   return (
@@ -19,32 +25,263 @@ const WhatsappBtn = () => {
       href={`https://wa.me/${whatsapp_number}?text=Hello%20Astro%20Honest%20Center`}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 via-green-600 to-teal-500 text-white font-bold rounded-2xl shadow-2xl px-5 py-3 text-sm montserrat relative overflow-hidden hover:scale-105 transition-transform duration-300"
-      animate={{ y: [0, -6, 0], scale: [1, 1.08, 1] }}
-      transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+      aria-label="Message on WhatsApp"
+      className="
+        fixed
+        bottom-6
+        left-5
+        z-50
+
+        flex
+        h-[58px]
+        w-[58px]
+        items-center
+        justify-center
+
+        rounded-full
+        bg-gradient-to-br
+        from-green-400
+        via-green-500
+        to-emerald-600
+
+        text-white
+
+        shadow-[0_8px_30px_rgba(34,197,94,0.45)]
+
+        lg:hidden
+      "
+      animate={{
+        y: [0, -5, 0],
+        scale: [1, 1.06, 1],
+      }}
+      whileTap={{
+        scale: 0.9,
+      }}
+      transition={{
+        duration: 1.8,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
     >
-      {/* Neon Glow */}
-      <span className="absolute inset-0 rounded-2xl bg-green-400/30 blur-xl animate-ping"></span>
-      <MessagesSquare className="w-5 h-5 relative z-10" />
-      <span className="relative z-10">Whatsapp</span>
+      {/* OUTER PULSE */}
+      <motion.span
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          rounded-full
+          border-2
+          border-green-400/60
+        "
+        animate={{
+          scale: [1, 1.55],
+          opacity: [0.7, 0],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeOut",
+        }}
+      />
+
+      {/* SECOND PULSE */}
+      <motion.span
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          rounded-full
+          border
+          border-green-300/40
+        "
+        animate={{
+          scale: [1, 1.35],
+          opacity: [0.5, 0],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeOut",
+          delay: 0.5,
+        }}
+      />
+
+      {/* GLOW */}
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-1
+          rounded-full
+          bg-green-300/30
+          blur-lg
+        "
+      />
+
+      {/* INNER GLASS */}
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-[3px]
+          rounded-full
+          border
+          border-white/25
+        "
+      />
+
+      {/* ICON */}
+      <MessagesSquare
+        className="
+          relative
+          z-10
+          h-[27px]
+          w-[27px]
+          drop-shadow-md
+        "
+        strokeWidth={2.2}
+      />
     </motion.a>
   );
 };
+
+/* =========================================================
+   CALL — BOTTOM RIGHT
+========================================================= */
 
 const CallBtn = () => {
   return (
     <motion.a
       href={`tel:${phone_number}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 text-white font-bold rounded-2xl shadow-2xl px-5 py-3 text-sm montserrat relative overflow-hidden hover:scale-105 transition-transform duration-300"
-      animate={{ y: [0, -6, 0], scale: [1, 1.08, 1] }}
-      transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+      aria-label="Call Now"
+      className="
+        fixed
+        bottom-6
+        right-5
+        z-50
+
+        flex
+        h-[58px]
+        w-[58px]
+        items-center
+        justify-center
+
+        rounded-full
+        bg-gradient-to-br
+        from-[#e9a94f]
+        via-[#d87838]
+        to-[#b94d2d]
+
+        text-white
+
+        shadow-[0_8px_30px_rgba(185,77,45,0.42)]
+
+        lg:hidden
+      "
+      animate={{
+        y: [0, -5, 0],
+        scale: [1, 1.06, 1],
+      }}
+      whileTap={{
+        scale: 0.9,
+      }}
+      transition={{
+        duration: 1.8,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 0.25,
+      }}
     >
-      {/* Neon Glow */}
-      <span className="absolute inset-0 rounded-2xl bg-yellow-400/30 blur-xl animate-ping"></span>
-      <PhoneCall className="w-5 h-5 relative z-10" />
-      <span className="relative z-10">Call Now</span>
+      {/* OUTER PULSE */}
+      <motion.span
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          rounded-full
+          border-2
+          border-orange-400/60
+        "
+        animate={{
+          scale: [1, 1.55],
+          opacity: [0.7, 0],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeOut",
+          delay: 0.25,
+        }}
+      />
+
+      {/* SECOND PULSE */}
+      <motion.span
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          rounded-full
+          border
+          border-yellow-300/40
+        "
+        animate={{
+          scale: [1, 1.35],
+          opacity: [0.5, 0],
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeOut",
+          delay: 0.75,
+        }}
+      />
+
+      {/* GLOW */}
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-1
+          rounded-full
+          bg-orange-300/30
+          blur-lg
+        "
+      />
+
+      {/* INNER GLASS */}
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-[3px]
+          rounded-full
+          border
+          border-white/25
+        "
+      />
+
+      {/* PHONE ICON */}
+      <motion.span
+        className="relative z-10 flex"
+        animate={{
+          rotate: [0, -10, 10, -7, 7, 0],
+        }}
+        transition={{
+          duration: 1.4,
+          repeat: Infinity,
+          repeatDelay: 1.5,
+          ease: "easeInOut",
+        }}
+      >
+        <PhoneCall
+          className="
+            h-[26px]
+            w-[26px]
+            drop-shadow-md
+          "
+          strokeWidth={2.2}
+        />
+      </motion.span>
     </motion.a>
   );
 };

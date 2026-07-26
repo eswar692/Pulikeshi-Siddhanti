@@ -1,6 +1,6 @@
-const phone_number = "99028 19970";
+const phone_number = "9845594491";
 const email = "";
-const whatsapp_number = "919902819970";
+const whatsapp_number = "919845594491";
 const company_name = "Pulikeshi Siddhanti";
 const person_name = "Pulikeshi Siddhanti";
 

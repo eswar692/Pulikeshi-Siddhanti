@@ -1,10 +1,14 @@
+"use client";
+
 import {
   phone_number,
   whatsapp_number,
   person_name,
   company_name,
 } from "../Genaral/secrete";
+
 import { motion } from "framer-motion";
+
 import {
   Phone,
   MessageCircle,
@@ -12,430 +16,975 @@ import {
   Award,
   Users,
   BookOpen,
-  ArrowRight,
+  ArrowUpRight,
+  Sparkles,
+  Check,
 } from "lucide-react";
-import { useState } from "react";
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+/* =========================================================
+   DATA
+========================================================= */
 
 const STATS = [
-  { icon: Star, value: "20+", label: "Years of Experience", index: "01" },
-  { icon: Users, value: "5K+", label: "Clients Helped", index: "02" },
-  { icon: Award, value: "Kerala", label: "Trusted Practice", index: "03" },
-  { icon: BookOpen, value: "10+", label: "Services Offered", index: "04" },
+  {
+    icon: Star,
+    value: "20+",
+    label: "Years Experience",
+  },
+  {
+    icon: Users,
+    value: "20k+",
+    label: "Clients Guided",
+  },
+  {
+    icon: Award,
+    value: "Bangalore & Hyderabad",
+    label: "Traditional Practice",
+  },
+  {
+    icon: BookOpen,
+    value: "10+",
+    label: "Services Offered",
+  },
 ];
 
-const PARAGRAPHS = (pName: string) => [
-  <>
-    <span className="font-semibold text-[#d4a24e]">{pName}</span> is a
-    trusted and respected traditional Kerala practitioner with decades of
-    experience. With deep knowledge of ancient Kerala practices and a genuine
-    commitment to helping others, he has established himself as a reliable
-    consultant to individuals and families across India.
-  </>,
-  <>
-    Through his extensive experience and thoughtful approach,{" "}
-    <span className="font-medium text-[#fdf6ec]/80">{pName}</span> offers a
-    wide range of services including horoscope reading, Vastu consultation,
-    palmistry, and phone consultations — spanning traditional Kerala
-    practices, holistic well-being, and personal development.
-  </>,
-  <>
-    Known for his{" "}
-    <span className="font-semibold text-[#d4a24e]/85">clarity</span> and
-    thoughtful insights,{" "}
-    <span className="font-medium text-[#fdf6ec]/80">{pName}</span> has built a
-    loyal following of clients who value the positive direction and confidence
-    his consultations bring to their lives.
-  </>,
-  <>
-    If you are looking for a trusted and experienced consultant, we warmly
-    welcome you to get in touch for a personalized session.
-  </>,
+const SERVICES = [
+  "Horoscope Reading",
+  "Vastu Consultation",
+  "Palmistry",
+  "Phone Consultation",
+  "Personal Guidance",
 ];
 
-// ─── Motion variants ──────────────────────────────────────────────────────────
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
-};
-
-// ─── About ────────────────────────────────────────────────────────────────────
+/* =========================================================
+   ABOUT
+========================================================= */
 
 export default function About() {
   return (
-    <section className="relative min-h-screen py-24 md:py-32 px-5 md:px-10 bg-[#161029] overflow-hidden">
-      {/* Chart-line watermark — same signature motif used across the site */}
-      <svg
-        className="absolute -right-20 -top-20 w-96 h-96 pointer-events-none text-[#d4a24e]/[0.05]"
-        viewBox="0 0 200 200"
-        fill="none"
-        aria-hidden="true"
-      >
-        <rect x="2" y="2" width="196" height="196" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M2 2L198 198M198 2L2 198" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M100 2V198M2 100H198" stroke="currentColor" strokeWidth="0.6" />
-      </svg>
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#fffaf3]
+        px-5
+        py-20
+        sm:px-8
+        md:py-28
+        lg:px-12
+      "
+    >
+      {/* =====================================================
+          CLOUD BACKGROUND
+      ===================================================== */}
 
-      {/* Ambient orbs */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(212,162,78,0.08), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[380px] h-[380px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(90,70,150,0.1), transparent 65%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[300px] h-[300px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(212,162,78,0.05), transparent 65%)",
-        }}
+        className="
+          pointer-events-none
+          absolute
+          -left-[220px]
+          top-[5%]
+          h-[500px]
+          w-[600px]
+          rounded-full
+          bg-[#ead6b9]/45
+          blur-[140px]
+        "
       />
 
-      <div className="relative z-10 max-w-[960px] mx-auto">
-        {/* ── Header ── */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[250px]
+          top-[28%]
+          h-[520px]
+          w-[520px]
+          rounded-full
+          bg-[#dfb98c]/25
+          blur-[150px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-[-250px]
+          left-[25%]
+          h-[500px]
+          w-[700px]
+          rounded-full
+          bg-[#efe0cd]/70
+          blur-[150px]
+        "
+      />
+
+      {/* subtle decorative circle */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[8%]
+          top-[8%]
+          h-52
+          w-52
+          rounded-full
+          border
+          border-[#9b6842]/[0.06]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[10%]
+          top-[10%]
+          h-40
+          w-40
+          rounded-full
+          border
+          border-[#9b6842]/[0.05]
+        "
+      />
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* ===================================================
+            HEADER
+        =================================================== */}
+
         <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="mb-14 md:mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.7,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="
+            mb-12
+            grid
+            gap-8
+            md:mb-16
+            lg:grid-cols-[1fr_0.65fr]
+            lg:items-end
+          "
         >
-          {/* Eyebrow */}
-          <motion.div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px bg-[linear-gradient(90deg,#d4a24e,transparent)]" />
-            <span
-              className="text-[#d4a24e]/70 tracking-[0.28em] uppercase"
-              style={{ fontFamily: "monospace", fontSize: "0.6rem" }}
-            >
-              Our Story
-            </span>
-          </motion.div>
+          {/* LEFT */}
 
-          {/* Heading */}
-          <motion.div>
+          <div>
+            <div className="mb-5 flex items-center gap-3">
+
+              <span className="h-px w-9 bg-[#a65332]" />
+
+              <span
+                className="
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.26em]
+                  text-[#95623e]
+                "
+              >
+                Our Story
+              </span>
+
+            </div>
+
             <h1
-              className="text-[#fdf6ec] font-bold leading-none"
-              style={{
-                fontFamily: "'Cinzel Decorative', 'Playfair Display', serif",
-                fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
-              }}
+              className="
+                max-w-3xl
+                font-serif
+                text-[38px]
+                font-semibold
+                leading-[1.06]
+                tracking-[-0.035em]
+                text-[#34251d]
+
+                sm:text-[48px]
+                md:text-[58px]
+              "
             >
               About
-            </h1>
-            <h1
-              className="text-[#d4a24e] font-bold leading-none mt-1"
-              style={{
-                fontFamily: "'Cinzel Decorative', 'Playfair Display', serif",
-                fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
-              }}
-            >
-              {company_name}
-            </h1>
-          </motion.div>
 
-          {/* Rule */}
-          <motion.div className="flex items-center gap-3 mt-5">
-            <div className="h-px w-10 bg-[linear-gradient(90deg,#d4a24e,transparent)]" />
-            <div className="w-1.5 h-1.5 bg-[#d4a24e] rotate-45" />
-            <div className="w-1 h-1 bg-[#d4a24e]/30 rotate-45" />
-          </motion.div>
+              <span
+                className="
+                  ml-3
+                  italic
+                  text-[#a65332]
+                "
+              >
+                {company_name}
+              </span>
+            </h1>
+          </div>
+
+
+          {/* RIGHT INTRO */}
+
+          <div
+            className="
+              border-l
+              border-[#9b6842]/20
+              pl-5
+              lg:mb-1
+            "
+          >
+            <span
+              className="
+                mb-2
+                block
+                text-[9px]
+                font-bold
+                uppercase
+                tracking-[0.2em]
+                text-[#a65332]
+              "
+            >
+              Traditional Wisdom
+            </span>
+
+            <p
+              className="
+                max-w-md
+                text-[14px]
+                leading-7
+                text-[#756052]
+                sm:text-[15px]
+              "
+            >
+             Pulikeshi Siddhanti – Top Astrologer in Bangalore & Hyderabad. Guruji specializes in love marriage problems, husband-wife disputes, relationship affairs, family conflicts, and enemy issues. Get accurate predictions and permanent, perfect solutions for all your life problems today
+            </p>
+          </div>
+
         </motion.div>
 
-        {/* ── Stats row ── */}
+
+        {/* ===================================================
+            STATS
+        =================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.7,
+            delay: 0.1,
+          }}
+          className="
+            mb-14
+            grid
+            grid-cols-2
+            overflow-hidden
+            rounded-[24px]
+
+            border
+            border-[#75503a]/10
+
+            bg-white/50
+
+            shadow-[0_12px_40px_rgba(62,42,28,0.05)]
+
+            backdrop-blur-sm
+
+            md:grid-cols-4
+          "
         >
-          {STATS.map(({ icon: Icon, value, label, index }) => (
-            <StatCard
-              key={label}
-              Icon={Icon}
-              value={value}
-              label={label}
+          {STATS.map((stat, index) => (
+            <StatItem
+              key={stat.label}
+              {...stat}
               index={index}
             />
           ))}
         </motion.div>
 
-        {/* ── Content card ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-xl overflow-hidden"
-          style={{
-            background: "linear-gradient(160deg, #241c3d 0%, #1a1330 100%)",
-            border: "1px solid rgba(212,162,78,0.15)",
-          }}
+
+        {/* ===================================================
+            MAIN ABOUT LAYOUT
+        =================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-10
+
+            lg:grid-cols-[1.08fr_0.92fr]
+            lg:gap-16
+          "
         >
-          {/* Card top shimmer */}
-          <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(212,162,78,0.5)_40%,rgba(232,188,110,0.7)_50%,rgba(212,162,78,0.5)_60%,transparent)]" />
 
-          {/* Corner accents */}
-          <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-[#d4a24e]/28 pointer-events-none" />
-          <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[#d4a24e]/28 pointer-events-none" />
-          <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[#d4a24e]/28 pointer-events-none" />
-          <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-[#d4a24e]/28 pointer-events-none" />
+          {/* =================================================
+              LEFT CONTENT
+          ================================================= */}
 
-          <div className="p-8 md:p-12">
-            {/* Prose paragraphs */}
-            <div className="space-y-6">
-              {PARAGRAPHS(person_name).map((para, i) => (
-                <div key={i}>
-                  <p
-                    className="leading-relaxed"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "clamp(0.88rem, 1.2vw, 0.98rem)",
-                      fontWeight: 300,
-                      color: "rgba(253,246,236,0.55)",
-                    }}
-                  >
-                    {para}
-                  </p>
-                  {i < PARAGRAPHS(person_name).length - 1 && (
-                    <div className="flex items-center gap-2 mt-5">
-                      <div className="h-px w-8 bg-[linear-gradient(90deg,rgba(212,162,78,0.45),transparent)]" />
-                      <div className="w-1 h-1 bg-[#d4a24e]/35 rotate-45" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.75,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
 
-            {/* Bottom divider */}
-            <div className="h-px my-10 bg-[linear-gradient(90deg,transparent,rgba(212,162,78,0.25)_50%,transparent)]" />
+            {/* LABEL */}
 
-            {/* Feature chips */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {[
-                "Horoscope Reading",
-                "Vastu Consultation",
-                "Palmistry",
-                "Phone Consultation",
-                "Well-being Guidance",
-              ].map((s) => (
-                <span
-                  key={s}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full"
-                  style={{
-                    background: "rgba(212,162,78,0.07)",
-                    border: "1px solid rgba(212,162,78,0.16)",
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "0.65rem",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    fontWeight: 600,
-                    color: "rgba(212,162,78,0.75)",
-                  }}
-                >
-                  <span className="w-1 h-1 rounded-full bg-[#d4a24e]/55" />
-                  {s}
-                </span>
-              ))}
-            </div>
+            <div className="mb-5 flex items-center gap-2">
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 justify-center">
-              <motion.a
-                href={`tel:${phone_number}`}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-2.5 no-underline px-7 py-3.5 rounded-full font-semibold tracking-[0.07em] uppercase text-[#1a1330]"
-                style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.8rem",
-                  background:
-                    "linear-gradient(135deg, #c1622f 0%, #d4a24e 50%, #c1622f 100%)",
-                  backgroundSize: "200% 100%",
-                  boxShadow: "0 4px 24px rgba(212,162,78,0.35)",
-                }}
+              <Sparkles
+                size={14}
+                strokeWidth={1.7}
+                className="text-[#a65332]"
+              />
+
+              <span
+                className="
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.22em]
+                  text-[#9b6842]
+                "
               >
-                <Phone size={14} strokeWidth={2.5} />
-                Call Now
-                <ArrowRight
-                  size={12}
-                  strokeWidth={2.5}
-                  className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-200"
-                />
-              </motion.a>
+                About {person_name}
+              </span>
 
-              <motion.a
-                href={`https://wa.me/${whatsapp_number}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-2.5 no-underline px-7 py-3.5 rounded-full font-semibold tracking-[0.07em] uppercase transition-all duration-300"
-                style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.8rem",
-                  color: "rgba(253,246,236,0.8)",
-                  background: "rgba(253,246,236,0.05)",
-                  border: "1px solid rgba(253,246,236,0.12)",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.background = "rgba(212,162,78,0.1)";
-                  el.style.borderColor = "rgba(212,162,78,0.32)";
-                  el.style.color = "rgba(253,246,236,0.95)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.background = "rgba(253,246,236,0.05)";
-                  el.style.borderColor = "rgba(253,246,236,0.12)";
-                  el.style.color = "rgba(253,246,236,0.8)";
-                }}
-              >
-                <MessageCircle size={14} strokeWidth={2} />
-                Chat on WhatsApp
-                <ArrowRight
-                  size={12}
-                  strokeWidth={2.5}
-                  className="opacity-50 group-hover:translate-x-0.5 transition-transform duration-200"
-                />
-              </motion.a>
             </div>
 
-            {/* Trust line */}
-            <div className="flex items-center justify-center gap-3 mt-7">
-              <div className="w-1 h-1 bg-[#d4a24e]/35 rotate-45" />
+
+           
+
+
+            {/* FIRST PARAGRAPH */}
+
+            <p
+              className="
+                mt-7
+                max-w-2xl
+                text-[15px]
+                leading-[1.95]
+                text-[#665044]/85
+              "
+            >
+              <span
+                className="
+                  font-semibold
+                  text-[#493126]
+                "
+              >
+                {person_name}
+              </span>{" "}
+                Pulikeshi Siddhanti Guruji is a deeply trusted and revered astrologer who helps individuals unlock clarity and find true direction in life. His core philosophy is beautifully simple: when you understand your behavioral patterns, karmic influences, and planetary timing, you can navigate life's challenges with absolute awareness rather than confusion.
+                ​With decades of traditional practice, Guruji has touched the lives of over 10,000+ individuals and couples worldwide. He offers profound, practical guidance on crucial life aspects, including relationships, marriage delays, career growth, business obstacles, and deep emotional challenges.
+               </p>
+
+
+            {/* QUOTE / HIGHLIGHT */}
+
+            <div
+              className="
+                relative
+                my-8
+                border-l-2
+                border-[#a65332]/50
+                pl-5
+              "
+            >
               <p
-                className="text-[#d4a24e]/45 tracking-[0.2em] uppercase"
-                style={{ fontFamily: "monospace", fontSize: "0.58rem" }}
+                className="
+                  max-w-xl
+                  font-serif
+                  text-[19px]
+                  italic
+                  leading-[1.7]
+                  text-[#49372b]
+
+                  sm:text-[21px]
+                "
               >
-                Trusted Guidance &nbsp;·&nbsp; Calm Insights &nbsp;·&nbsp;
-                Personal Clarity
+                Thoughtful guidance designed to bring
+                clarity, confidence and a better understanding
+                of life's important moments.
               </p>
-              <div className="w-1 h-1 bg-[#d4a24e]/35 rotate-45" />
             </div>
-          </div>
 
-          {/* Card bottom shimmer */}
-          <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(212,162,78,0.25)_50%,transparent)]" />
-        </motion.div>
+
+            
+
+          </motion.div>
+
+
+          {/* =================================================
+              RIGHT SIDE
+          ================================================= */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.75,
+              delay: 0.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="
+              flex
+              flex-col
+              gap-5
+            "
+          >
+
+            {/* ===============================================
+                SERVICES CARD
+            =============================================== */}
+
+            <div
+              className="
+                relative
+                overflow-hidden
+                rounded-[28px]
+
+                border
+                border-[#80583d]/10
+
+                bg-[#f1e2cf]/65
+
+                p-6
+                sm:p-8
+              "
+            >
+
+              {/* CARD CLOUD */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-16
+                  -top-16
+
+                  h-44
+                  w-44
+
+                  rounded-full
+
+                  bg-[#d5975d]/20
+                  blur-[45px]
+                "
+              />
+
+
+              <div className="relative">
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.22em]
+                    text-[#a65332]
+                  "
+                >
+                  Areas of Guidance
+                </span>
+
+
+                <h3
+                  className="
+                    mt-3
+                    font-serif
+                    text-[26px]
+                    font-semibold
+                    leading-tight
+                    text-[#3e2d23]
+                  "
+                >
+                  Personalized guidance for
+                  life's important areas.
+                </h3>
+
+
+                {/* SERVICES */}
+
+                <div className="mt-7 space-y-3">
+
+                  {SERVICES.map((service) => (
+
+                    <div
+                      key={service}
+                      className="
+                        flex
+                        items-center
+                        gap-3
+
+                        rounded-[14px]
+
+                        border
+                        border-[#74503a]/[0.07]
+
+                        bg-white/45
+
+                        px-4
+                        py-3
+                      "
+                    >
+
+                      <span
+                        className="
+                          flex
+                          h-6
+                          w-6
+                          shrink-0
+                          items-center
+                          justify-center
+
+                          rounded-full
+
+                          bg-[#a65332]/10
+
+                          text-[#a65332]
+                        "
+                      >
+                        <Check
+                          size={12}
+                          strokeWidth={2}
+                        />
+                      </span>
+
+                      <span
+                        className="
+                          text-[13px]
+                          font-medium
+                          text-[#5b4333]
+                        "
+                      >
+                        {service}
+                      </span>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* ===============================================
+                CONTACT CARD
+            =============================================== */}
+
+            <div
+              className="
+                relative
+                overflow-hidden
+
+                rounded-[28px]
+
+                bg-[#493126]
+
+                p-6
+                sm:p-8
+
+                shadow-[0_18px_50px_rgba(73,49,38,0.16)]
+              "
+            >
+
+              {/* glow */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-20
+                  -top-20
+
+                  h-52
+                  w-52
+
+                  rounded-full
+
+                  bg-[#c77a4a]/20
+                  blur-[55px]
+                "
+              />
+
+
+              <div className="relative">
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.22em]
+                    text-[#e3b48c]
+                  "
+                >
+                  Personal Consultation
+                </span>
+
+
+                <h3
+                  className="
+                    mt-3
+                    max-w-sm
+                    font-serif
+                    text-[27px]
+                    font-semibold
+                    leading-[1.2]
+                    text-[#fffaf3]
+                  "
+                >
+                  Looking for guidance?
+                  Start a conversation.
+                </h3>
+
+
+                <p
+                  className="
+                    mt-4
+                    max-w-sm
+                    text-[13px]
+                    leading-6
+                    text-[#fffaf3]/60
+                  "
+                >
+                  Get in touch for a personalized consultation
+                  based on your situation and questions.
+                </p>
+
+
+                {/* BUTTONS */}
+
+                <div
+                  className="
+                    mt-7
+                    flex
+                    flex-col
+                    gap-3
+                    sm:flex-row
+                  "
+                >
+
+                  {/* CALL */}
+
+                  <motion.a
+                    href={`tel:${phone_number}`}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="
+                      group
+
+                      flex
+                      items-center
+                      justify-center
+                      gap-2.5
+
+                      rounded-full
+
+                      bg-[#fffaf3]
+
+                      px-5
+                      py-3
+
+                      text-[11px]
+                      font-bold
+                      uppercase
+                      tracking-[0.08em]
+                      text-[#493126]
+                    "
+                  >
+                    <Phone
+                      size={14}
+                      strokeWidth={2}
+                    />
+
+                    Call Now
+
+                    <ArrowUpRight
+                      size={14}
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-0.5
+                        group-hover:-translate-y-0.5
+                      "
+                    />
+                  </motion.a>
+
+
+                  {/* WHATSAPP */}
+
+                  <motion.a
+                    href={`https://wa.me/${whatsapp_number}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="
+                      group
+
+                      flex
+                      items-center
+                      justify-center
+                      gap-2.5
+
+                      rounded-full
+
+                      border
+                      border-white/15
+
+                      bg-white/[0.06]
+
+                      px-5
+                      py-3
+
+                      text-[11px]
+                      font-bold
+                      uppercase
+                      tracking-[0.08em]
+                      text-[#fffaf3]
+
+                      transition-colors
+                      duration-300
+
+                      hover:bg-white/[0.11]
+                    "
+                  >
+                    <MessageCircle
+                      size={14}
+                      strokeWidth={2}
+                    />
+
+                    Message Now
+
+                    <ArrowUpRight
+                      size={14}
+                      className="
+                        opacity-60
+                        transition-transform
+                        duration-300
+
+                        group-hover:translate-x-0.5
+                        group-hover:-translate-y-0.5
+                      "
+                    />
+                  </motion.a>
+
+                </div>
+
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+
+
+        {/* ===================================================
+            BOTTOM TRUST LINE
+        =================================================== */}
+
+        <div
+          className="
+            mt-14
+            flex
+            items-center
+            gap-4
+
+            md:mt-20
+          "
+        >
+
+          <span
+            className="
+              h-px
+              flex-1
+
+              bg-gradient-to-r
+              from-transparent
+              to-[#9b6842]/20
+            "
+          />
+
+          <span
+            className="
+              text-center
+              text-[8px]
+              font-bold
+              uppercase
+              tracking-[0.2em]
+              text-[#856b58]/50
+
+              sm:text-[9px]
+            "
+          >
+            Traditional Wisdom · Personal Guidance · Trusted Practice
+          </span>
+
+          <span
+            className="
+              h-px
+              flex-1
+
+              bg-gradient-to-l
+              from-transparent
+              to-[#9b6842]/20
+            "
+          />
+
+        </div>
+
       </div>
-
-      {/* Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap');
-      `}</style>
     </section>
   );
 }
 
-// ─── Stat Card ────────────────────────────────────────────────────────────────
 
-const StatCard = ({
-  Icon,
+/* =========================================================
+   STAT ITEM
+========================================================= */
+
+function StatItem({
+  icon: Icon,
   value,
   label,
   index,
 }: {
-  Icon: React.ElementType;
+  icon: React.ElementType;
   value: string;
   label: string;
-  index: string;
-}) => {
-  const [hovered, setHovered] = useState(false);
-
+  index: number;
+}) {
   return (
-    <motion.div
-      whileHover={{ y: -4, transition: { duration: 0.22, ease: "easeOut" } }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      className="relative flex flex-col items-center gap-3 p-5 rounded-xl cursor-default transition-all duration-300"
-      style={{
-        background: hovered
-          ? "linear-gradient(160deg, #241c3d, #1a1330)"
-          : "rgba(253,246,236,0.025)",
-        border: hovered
-          ? "1px solid rgba(212,162,78,0.28)"
-          : "1px solid rgba(253,246,236,0.06)",
-      }}
-    >
-      {/* Index */}
-      <span
-        className="absolute top-2.5 right-3 leading-none transition-colors duration-300"
-        style={{
-          fontFamily: "'Cinzel', serif",
-          fontSize: "0.62rem",
-          fontWeight: 700,
-          color: hovered ? "rgba(212,162,78,0.4)" : "rgba(253,246,236,0.12)",
-        }}
-      >
-        {index}
-      </span>
+    <div
+      className={`
+        group
+        relative
 
-      {/* Icon */}
+        flex
+        min-h-[150px]
+        flex-col
+        justify-between
+
+        p-5
+
+        transition-colors
+        duration-300
+
+        hover:bg-[#f3e4d1]/60
+
+        md:p-6
+
+        ${index % 2 === 0 ? "border-r border-[#76513a]/10" : ""}
+
+        ${
+          index < 2
+            ? "border-b border-[#76513a]/10 md:border-b-0"
+            : ""
+        }
+
+        ${
+          index !== 3
+            ? "md:border-r md:border-[#76513a]/10"
+            : "md:border-r-0"
+        }
+      `}
+    >
+
+      {/* ICON */}
+
       <div
-        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300"
-        style={{
-          background: hovered
-            ? "rgba(212,162,78,0.14)"
-            : "rgba(212,162,78,0.06)",
-          border: hovered
-            ? "1px solid rgba(212,162,78,0.35)"
-            : "1px solid rgba(212,162,78,0.12)",
-        }}
+        className="
+          flex
+          h-9
+          w-9
+          items-center
+          justify-center
+
+          rounded-full
+
+          bg-[#a65332]/[0.08]
+
+          text-[#a65332]
+
+          transition-transform
+          duration-300
+
+          group-hover:scale-110
+        "
       >
         <Icon
-          size={17}
-          style={{
-            color: hovered ? "#d4a24e" : "rgba(212,162,78,0.55)",
-            transition: "color 0.3s ease",
-          }}
-          strokeWidth={1.75}
+          size={15}
+          strokeWidth={1.7}
         />
       </div>
 
-      {/* Value */}
+
+      {/* VALUE */}
+
+      <div className="mt-5">
+
+        <strong
+          className="
+            block
+            font-serif
+            text-[25px]
+            font-semibold
+            leading-none
+            text-[#493126]
+
+            sm:text-[28px]
+          "
+        >
+          {value}
+        </strong>
+
+        <span
+          className="
+            mt-2
+            block
+
+            text-[9px]
+            font-semibold
+            uppercase
+            tracking-[0.13em]
+            text-[#806650]/55
+          "
+        >
+          {label}
+        </span>
+
+      </div>
+
+
+      {/* NUMBER */}
+
       <span
-        className="leading-none transition-colors duration-300"
-        style={{
-          fontFamily: "'Cinzel', serif",
-          fontSize: "1.6rem",
-          fontWeight: 700,
-          color: hovered ? "#d4a24e" : "rgba(253,246,236,0.9)",
-        }}
+        className="
+          absolute
+          right-4
+          top-4
+
+          font-serif
+          text-[10px]
+          text-[#9b6842]/20
+        "
       >
-        {value}
+        {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Label */}
-      <span
-        className="text-center leading-tight"
-        style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: "0.68rem",
-          fontWeight: 300,
-          color: "rgba(253,246,236,0.4)",
-          letterSpacing: "0.03em",
-        }}
-      >
-        {label}
-      </span>
-
-      {/* Bottom accent bar */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, #d4a24e, transparent)",
-          width: hovered ? "60%" : "0%",
-        }}
-      />
-    </motion.div>
+    </div>
   );
-};
+}

@@ -1,35 +1,57 @@
 "use client";
+
 import { useState } from "react";
 import { Play, Quote, X } from "lucide-react";
 import { person_name } from "./secrete";
 
-/**
- * Video testimonials — album/grid layout (no carousel).
- *
- * Fill in `src` for each entry with your uploaded video URL/path.
- * `poster` is optional (shown as the thumbnail before it's opened).
- *
- * Grid columns:
- *  - Mobile:  1 column
- *  - Tablet:  2 columns
- *  - Desktop: 3 columns
- */
-
 type VideoTestimonial = {
-
-  src: string; // <-- your video URL/path
-  poster?: string; // <-- optional thumbnail image
+  src: string;
+  poster?: string;
 };
 
 const videoTestimonials: VideoTestimonial[] = [
-  {  src: "https://player.cloudinary.com/embed/?cloud_name=di7evjrx6&public_id=IMG_1708_gtz8uu", poster: "" },
-  {  src: "IMG_1722.MOV", poster: "" },
-  {  src: "IMG_1957.MOV", poster: "" },
-  {  src: "IMG_1956.MOV", poster: "" },
-  {  src: "IMG_1712.MOV", poster: "" },
-  {  src: "IMG_1708.MOV", poster: "" },
-  {  src: "", poster: "" },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1784878354/IMG_1708_gtz8uu.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037126/IMG_1710_zo2dqg.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037189/IMG_1886_ncuhf3.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037339/IMG_1692_ptyz59.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037384/IMG_1719_rrsvq8.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037440/IMG_1890_msjllw.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037487/IMG_1956_ltae7g.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037531/IMG_1709_mir416.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037883/img-1722_IQjvRh2X_ntrc3d.mp4",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785038266/img-1712_v2BvK7jt_tbcvva.mp4",
+    poster: "",
+  },
 ];
+
 function VideoTile({
   item,
   onOpen,
@@ -42,7 +64,24 @@ function VideoTile({
       type="button"
       onClick={onOpen}
       disabled={!item.src}
-      className="group relative flex aspect-[9/16] w-full flex-col overflow-hidden rounded-2xl border border-[#d4a24e]/12 bg-[#241c3d] text-left shadow-xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:border-[#d4a24e]/28 disabled:cursor-default disabled:hover:translate-y-0"
+      className="
+        group
+        relative
+        aspect-[9/16]
+        w-full
+        overflow-hidden
+        rounded-[22px]
+        bg-[#eee8dc]
+        shadow-[0_8px_30px_rgba(55,42,25,0.10)]
+        ring-1
+        ring-black/[0.06]
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-[0_14px_40px_rgba(55,42,25,0.16)]
+        disabled:cursor-default
+        disabled:hover:translate-y-0
+      "
     >
       {item.src ? (
         <video
@@ -51,110 +90,342 @@ function VideoTile({
           muted
           playsInline
           preload="metadata"
-          className="h-full w-full object-cover"
+          className="
+            h-full
+            w-full
+            object-cover
+            transition-transform
+            duration-500
+            group-hover:scale-[1.02]
+          "
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#241c3d] to-[#1a1330] text-center">
-          <Quote size={26} className="text-[#d4a24e]/25" />
-          <span className="px-6 text-xs uppercase tracking-widest text-[#d4a24e]/35">
+        <div
+          className="
+            flex
+            h-full
+            w-full
+            flex-col
+            items-center
+            justify-center
+            gap-3
+            bg-[#eee8dc]
+            text-center
+          "
+        >
+          <Quote size={28} className="text-[#9c7651]/40" />
+
+          <span
+            className="
+              px-6
+              text-xs
+              font-medium
+              uppercase
+              tracking-[0.2em]
+              text-[#5d5145]/50
+            "
+          >
             Video coming soon
           </span>
         </div>
       )}
 
-      {/* Bottom gradient for legibility */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1a1330] to-transparent" />
+      {/* subtle bottom fade */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          h-28
+          bg-gradient-to-t
+          from-black/30
+          via-black/5
+          to-transparent
+        "
+      />
 
-      {/* Play badge */}
+      {/* Play button */}
       {item.src && (
-        <span className="absolute inset-0 flex items-center justify-center">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d4a24e]/40 bg-[#1a1330]/70 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-            <Play size={20} className="ml-0.5 text-[#d4a24e]" fill="#d4a24e" />
+        <div
+          className="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
+          "
+        >
+          <span
+            className="
+              flex
+              h-16
+              w-16
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/60
+              bg-white/85
+              shadow-lg
+              backdrop-blur-md
+              transition-all
+              duration-300
+              group-hover:scale-110
+              group-hover:bg-white
+            "
+          >
+            <Play
+              size={22}
+              className="ml-1 text-[#8b5e3c]"
+              fill="currentColor"
+            />
           </span>
-        </span>
+        </div>
       )}
-
-     
     </button>
   );
 }
 
 export default function VideoTestimonials() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const openItem = openIndex !== null ? videoTestimonials[openIndex] : null;
+
+  const openItem =
+    openIndex !== null ? videoTestimonials[openIndex] : null;
 
   return (
-    <section className="relative overflow-hidden bg-[#161029] px-6 py-20 sm:px-10 lg:px-16">
-      {/* Chart-line watermark — consistent site signature */}
-      <svg
-        className="pointer-events-none absolute -left-20 -top-20 h-96 w-96 text-[#d4a24e]/[0.05]"
-        viewBox="0 0 200 200"
-        fill="none"
-        aria-hidden="true"
-      >
-        <rect x="2" y="2" width="196" height="196" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M2 2L198 198M198 2L2 198" stroke="currentColor" strokeWidth="0.6" />
-        <path d="M100 2V198M2 100H198" stroke="currentColor" strokeWidth="0.6" />
-      </svg>
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[220px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(212,162,78,0.08),transparent_70%)]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(90,70,150,0.12),transparent_65%)]" />
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#f8f5ef]
+        px-5
+        py-20
+        sm:px-10
+        lg:px-16
+        lg:py-24
+      "
+    >
+      {/* =====================================================
+          BACKGROUND DECORATION
+      ===================================================== */}
 
-      <div className="relative mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-14 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#d4a24e]" />
-            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d4a24e]">
+      {/* warm top glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[-180px]
+          h-[400px]
+          w-[800px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#ead8b7]/35
+          blur-[100px]
+        "
+      />
+
+      {/* soft left shape */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-[180px]
+          top-[30%]
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-[#e8dfd0]/40
+          blur-[100px]
+        "
+      />
+
+      {/* soft right shape */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-[150px]
+          bottom-[10%]
+          h-[350px]
+          w-[350px]
+          rounded-full
+          bg-[#e3cfb2]/30
+          blur-[100px]
+        "
+      />
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* HEADER */}
+        <div className="mx-auto mb-14 max-w-2xl text-center">
+
+          <div
+            className="
+              mb-5
+              flex
+              items-center
+              justify-center
+              gap-3
+            "
+          >
+            <span className="h-px w-10 bg-[#b78a5c]/40" />
+
+            <span
+              className="
+                text-[11px]
+                font-semibold
+                uppercase
+                tracking-[0.28em]
+                text-[#9b6a43]
+              "
+            >
               In Their Own Words
             </span>
-            <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#d4a24e]" />
+
+            <span className="h-px w-10 bg-[#b78a5c]/40" />
           </div>
-          <h2 className="font-serif text-4xl font-bold text-[#fdf6ec] md:text-5xl">
+
+          <h2
+            className="
+              font-serif
+              text-4xl
+              font-bold
+              tracking-tight
+              text-[#302a25]
+              md:text-5xl
+            "
+          >
             Client Video Stories
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#fdf6ec]/50">
+
+          <p
+            className="
+              mx-auto
+              mt-5
+              max-w-xl
+              text-[15px]
+              leading-7
+              text-[#70675e]
+              sm:text-base
+            "
+          >
             Hear directly from people who found clarity and direction with{" "}
-            <span className="font-medium text-[#d4a24e]">{person_name}</span>.
+            <span className="font-semibold text-[#8b5e3c]">
+              {person_name}
+            </span>
+            .
           </p>
         </div>
 
-        {/* Album grid: 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* =====================================================
+            VIDEO GRID
+        ===================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-6
+            sm:grid-cols-2
+            lg:grid-cols-2
+            lg:gap-8
+          "
+        >
           {videoTestimonials.map((item, i) => (
-            <VideoTile key={i} item={item} onOpen={() => setOpenIndex(i)} />
+            <VideoTile
+              key={i}
+              item={item}
+              onOpen={() => setOpenIndex(i)}
+            />
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* =====================================================
+          VIDEO LIGHTBOX
+      ===================================================== */}
+
       {openItem && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-6 backdrop-blur-sm"
+          className="
+            fixed
+            inset-0
+            z-50
+            flex
+            items-center
+            justify-center
+            bg-[#171411]/90
+            p-4
+            backdrop-blur-md
+            sm:p-6
+          "
           onClick={() => setOpenIndex(null)}
         >
           <div
-            className="relative w-full max-w-md"
+            className="
+              relative
+              w-full
+              max-w-md
+            "
             onClick={(e) => e.stopPropagation()}
           >
+            {/* CLOSE BUTTON */}
             <button
               type="button"
               onClick={() => setOpenIndex(null)}
               aria-label="Close video"
-              className="absolute -top-12 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-[#d4a24e]/30 bg-[#241c3d] text-[#d4a24e] transition-colors hover:bg-[#d4a24e]/10"
+              className="
+                absolute
+                -top-12
+                right-0
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/20
+                bg-white/10
+                text-white
+                backdrop-blur-md
+                transition
+                hover:bg-white/20
+              "
             >
-              <X size={18} />
+              <X size={19} />
             </button>
 
-            <div className="overflow-hidden rounded-2xl border border-[#d4a24e]/20 bg-[#0d0a1a] shadow-2xl">
+            {/* VIDEO */}
+            <div
+              className="
+                overflow-hidden
+                rounded-[24px]
+                bg-black
+                shadow-2xl
+                ring-1
+                ring-white/10
+              "
+            >
               <video
                 src={openItem.src}
                 poster={openItem.poster || undefined}
                 controls
                 autoPlay
                 playsInline
-                className="max-h-[80vh] w-full"
+                className="
+                  max-h-[82vh]
+                  w-full
+                  bg-black
+                  object-contain
+                "
               />
-            
             </div>
           </div>
         </div>

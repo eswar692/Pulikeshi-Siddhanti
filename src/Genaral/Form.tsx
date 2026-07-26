@@ -1,33 +1,43 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import {
   User,
   Phone,
   Mail,
   MessageSquare,
   ArrowRight,
-  Shield,
-  CheckCircle,
+  ShieldCheck,
+  Check,
 } from "lucide-react";
-
-// ─── Form ─────────────────────────────────────────────────────────────────────
 
 const Form = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
     setLoading(true);
+
     const form = e.currentTarget;
     const data = new FormData(form);
 
     try {
-      const res = await fetch("https://formspree.io/f/mvgaznyw", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
+      const res = await fetch(
+        "https://formspree.io/f/mvgaznyw",
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
       if (res.ok) {
         setSubmitted(true);
         form.reset();
@@ -38,302 +48,436 @@ const Form = () => {
   };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=DM+Sans:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap');
+    <AnimatePresence mode="wait">
+      {submitted ? (
+        <motion.div
+          key="success"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="
+            rounded-[18px]
+            border-2
+            border-[#d9b99f]
+            bg-[#fffdf9]
+            px-2
+            py-12
+            text-center
+          "
+        >
+          <div
+            className="
+              mx-auto
+              flex
+              h-14
+              w-14
+              items-center
+              justify-center
+              rounded-xl
+              bg-[#493126]
+              text-white
+            "
+          >
+            <Check size={24} />
+          </div>
 
-        .form-input {
-          width: 100%;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(212,175,55,0.12);
-          border-radius: 8px;
-          padding: 13px 14px 13px 42px;
-          color: rgba(255,255,255,0.85);
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.85rem;
-          font-weight: 300;
-          outline: none;
-          transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-          resize: none;
-        }
-        .form-input::placeholder {
-          color: rgba(255,255,255,0.22);
-          font-weight: 300;
-        }
-        .form-input:focus {
-          background: rgba(212,175,55,0.05);
-          border-color: rgba(212,175,55,0.4);
-          box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
-        }
-        .form-input:hover:not(:focus) {
-          border-color: rgba(212,175,55,0.22);
-        }
-      `}</style>
+          <h3
+            className="
+              mt-5
+              font-serif
+              text-2xl
+              font-semibold
+              text-[#34251d]
+            "
+          >
+            Message Received
+          </h3>
 
-      <div
-        className="relative rounded-xl overflow-hidden"
-        style={{
-          background: "linear-gradient(160deg, #0f0f1a 0%, #0a0a12 100%)",
-          border: "1px solid rgba(212,175,55,0.12)",
-        }}
-      >
-        {/* Top shimmer */}
-        <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.5)_40%,rgba(245,226,122,0.7)_50%,rgba(212,175,55,0.5)_60%,transparent)]" />
+          <p
+            className="
+              mx-auto
+              mt-2
+              max-w-sm
+              text-sm
+              leading-6
+              text-[#725c4d]
+            "
+          >
+            Your consultation request has been received.
+            We'll contact you shortly.
+          </p>
 
-        {/* Corner accents */}
-        <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-[#d4af37]/20 pointer-events-none" />
-        <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[#d4af37]/20 pointer-events-none" />
-        <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[#d4af37]/20 pointer-events-none" />
-        <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-[#d4af37]/20 pointer-events-none" />
+          <button
+            type="button"
+            onClick={() => setSubmitted(false)}
+            className="
+              mt-6
+              text-xs
+              font-bold
+              uppercase
+              tracking-wider
+              text-[#a65332]
+            "
+          >
+            Submit another →
+          </button>
+        </motion.div>
+      ) : (
+        <motion.form
+          key="form"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onSubmit={handleSubmit}
+          className="space-y-5"
+        >
+          {/* NAME + PHONE */}
 
-        <div className="p-6 md:p-8">
-          {/* Form header */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-6 h-px bg-[linear-gradient(90deg,#d4af37,transparent)]" />
-              <span
-                className="text-[#d4af37]/55 tracking-[0.26em] uppercase"
-                style={{ fontFamily: "monospace", fontSize: "0.58rem" }}
-              >
-                Book a Session
-              </span>
+          <div className="grid gap-5 md:grid-cols-2">
+            <FormField
+              label="Your Name"
+              icon={User}
+            >
+              <input
+                required
+                type="text"
+                name="name"
+                autoComplete="name"
+                placeholder="Enter your name"
+                className={inputClass}
+              />
+            </FormField>
+
+            <FormField
+              label="Phone Number"
+              icon={Phone}
+            >
+              <input
+                required
+                type="tel"
+                name="phone"
+                autoComplete="tel"
+                placeholder="Enter phone number"
+                className={inputClass}
+              />
+            </FormField>
+          </div>
+
+          {/* EMAIL */}
+
+          <FormField
+            label="Email Address"
+            optional
+            icon={Mail}
+          >
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="Enter email address"
+              className={inputClass}
+            />
+          </FormField>
+
+          {/* MESSAGE */}
+
+          <FormField
+            label="Your Message"
+            icon={MessageSquare}
+            textarea
+          >
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Tell us briefly about your concern..."
+              className={`${inputClass} min-h-[125px] resize-none py-4`}
+            />
+          </FormField>
+
+          {/* PRIVACY BOX */}
+
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              rounded-xl
+              border
+              border-[#d8bda8]
+              bg-[#f6eadc]
+              px-4
+              py-3
+            "
+          >
+            <div
+              className="
+                flex
+                h-8
+                w-8
+                shrink-0
+                items-center
+                justify-center
+                rounded-lg
+                bg-[#493126]
+                text-[#fffaf3]
+              "
+            >
+              <ShieldCheck
+                size={15}
+                strokeWidth={2}
+              />
             </div>
-            <h3
-              className="text-white font-bold leading-tight"
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: "1.1rem",
-                letterSpacing: "0.04em",
-              }}
-            >
-              Get in Touch
-            </h3>
+
             <p
-              className="mt-1"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.78rem",
-                fontWeight: 300,
-                color: "rgba(255,255,255,0.35)",
-              }}
+              className="
+                text-[12px]
+                leading-5
+                text-[#654d3e]
+              "
             >
-              Fill in your details and we'll reach out personally.
+              Your details are kept private and used only
+              to respond to your consultation request.
             </p>
           </div>
 
-          <AnimatePresence mode="wait">
-            {submitted ? (
-              /* ── Success state ── */
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-center gap-4 py-10 text-center"
-              >
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{
-                    background: "rgba(212,175,55,0.1)",
-                    border: "1px solid rgba(212,175,55,0.25)",
-                  }}
-                >
-                  <CheckCircle
-                    size={24}
-                    className="text-[#d4af37]"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <div>
-                  <p
-                    className="text-white font-semibold"
-                    style={{
-                      fontFamily: "'Cinzel', serif",
-                      fontSize: "0.95rem",
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    Message Received
-                  </p>
-                  <p
-                    className="mt-1"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "0.78rem",
-                      fontWeight: 300,
-                      color: "rgba(255,255,255,0.4)",
-                    }}
-                  >
-                    We'll reach out to you shortly.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="text-[#d4af37]/60 hover:text-[#d4af37] transition-colors duration-200"
-                  style={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "0.72rem",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Submit another →
-                </button>
-              </motion.div>
-            ) : (
-              /* ── Form ── */
-              <motion.form
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                action="https://formspree.io/f/mvgaznyw"
-                method="POST"
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-4"
-              >
-                {/* Name */}
-                <FormField icon={<User size={14} strokeWidth={2} />}>
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    className="form-input"
-                    placeholder="Your name"
-                  />
-                </FormField>
+          {/* SUBMIT */}
 
-                {/* Phone */}
-                <FormField icon={<Phone size={14} strokeWidth={2} />}>
-                  <input
-                    required
-                    type="tel"
-                    name="phone"
-                    className="form-input"
-                    placeholder="Phone number"
-                  />
-                </FormField>
+          <motion.button
+            type="submit"
+            disabled={loading}
+            whileHover={
+              loading ? undefined : { y: -2 }
+            }
+            whileTap={
+              loading ? undefined : { scale: 0.98 }
+            }
+            className="
+              group
+              flex
+              w-full
+              items-center
+              justify-between
+              rounded-xl
+              bg-[#493126]
+              p-1.5
+              pl-5
+              text-white
+              shadow-[0_8px_24px_rgba(73,49,38,0.18)]
+              transition-colors
+              duration-300
+              hover:bg-[#a65332]
+              disabled:cursor-not-allowed
+              disabled:opacity-60
+            "
+          >
+            <span
+              className="
+                text-[12px]
+                font-bold
+                uppercase
+                tracking-[0.12em]
+              "
+            >
+              {loading
+                ? "Sending..."
+                : "Book a Session"}
+            </span>
 
-                {/* Email */}
-                <FormField icon={<Mail size={14} strokeWidth={2} />}>
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-input"
-                    placeholder="Email address (optional)"
-                  />
-                </FormField>
-
-                {/* Message */}
-                <FormField
-                  icon={<MessageSquare size={14} strokeWidth={2} />}
-                  align="top"
-                >
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="form-input"
-                    style={{ paddingTop: "13px" }}
-                    placeholder="Your message or query"
-                  />
-                </FormField>
-
-                {/* Divider */}
-                <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.15)_50%,transparent)] my-1" />
-
-                {/* Submit */}
-                <motion.button
-                  type="submit"
-                  disabled={loading}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="group relative flex items-center justify-center gap-2.5 w-full py-3.5 rounded-sm font-semibold tracking-[0.08em] uppercase transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "0.8rem",
-                    color: "#06060c",
-                    background:
-                      "linear-gradient(135deg, #d4af37 0%, #f5e27a 50%, #d4af37 100%)",
-                    backgroundSize: "200% 100%",
-                    boxShadow: loading
-                      ? "none"
-                      : "0 4px 24px rgba(212,175,55,0.4)",
-                  }}
-                >
-                  {loading ? (
-                    <>
-                      <span className="w-4 h-4 rounded-full border-2 border-[#06060c]/30 border-t-[#06060c] animate-spin" />
-                      Sending…
-                    </>
-                  ) : (
-                    <>
-                      Book a Session
-                      <ArrowRight
-                        size={14}
-                        strokeWidth={2.5}
-                        className="opacity-60 group-hover:translate-x-0.5 transition-transform duration-200"
-                      />
-                    </>
-                  )}
-                </motion.button>
-
-                {/* Trust note */}
-                <div className="flex items-center justify-center gap-2 mt-1">
-                  <Shield
-                    size={11}
-                    strokeWidth={2}
-                    className="text-[#d4af37]/40 flex-shrink-0"
-                  />
-                  <p
-                    className="text-center"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "0.7rem",
-                      fontWeight: 300,
-                      color: "rgba(255,255,255,0.3)",
-                    }}
-                  >
-                    Your details are{" "}
-                    <span className="text-[#d4af37]/60 font-medium">
-                      100% confidential
-                    </span>
-                    . We never share your information.
-                  </p>
-                </div>
-              </motion.form>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Bottom shimmer */}
-        <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.15)_50%,transparent)]" />
-      </div>
-    </>
+            <span
+              className="
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                rounded-lg
+                bg-[#fffaf3]
+                text-[#493126]
+              "
+            >
+              {loading ? (
+                <span
+                  className="
+                    h-4
+                    w-4
+                    animate-spin
+                    rounded-full
+                    border-2
+                    border-[#493126]/25
+                    border-t-[#493126]
+                  "
+                />
+              ) : (
+                <ArrowRight
+                  size={17}
+                  strokeWidth={2.2}
+                  className="
+                    transition-transform
+                    group-hover:translate-x-0.5
+                  "
+                />
+              )}
+            </span>
+          </motion.button>
+        </motion.form>
+      )}
+    </AnimatePresence>
   );
 };
 
 export default Form;
 
-// ─── FormField ────────────────────────────────────────────────────────────────
+/* =========================================================
+   INPUT DESIGN
+========================================================= */
 
-const FormField = ({
-  icon,
+const inputClass = `
+  h-[52px]
+  w-full
+  bg-[#ffffff]
+  px-4
+  text-[14px]
+  font-medium
+  text-[#3f2b21]
+
+  outline-none
+
+  placeholder:text-[#9b8577]
+  placeholder:font-normal
+
+  transition-all
+  duration-200
+
+  focus:bg-[#fffdf9]
+`;
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+function FormField({
+  label,
+  optional = false,
+  icon: Icon,
+  textarea = false,
   children,
-  align = "center",
 }: {
-  icon: React.ReactNode;
+  label: string;
+  optional?: boolean;
+  icon: React.ElementType  ;
+  textarea?: boolean;
   children: React.ReactNode;
-  align?: "center" | "top";
-}) => (
-  <div className="relative">
-    <div
-      className={`absolute left-3.5 pointer-events-none text-[#d4af37]/40 ${
-        align === "top" ? "top-3.5" : "top-1/2 -translate-y-1/2"
-      }`}
-    >
-      {icon}
-    </div>
-    {children}
-  </div>
-);
+}) {
+  return (
+    <label className="block">
+      {/* LABEL */}
+
+      <div
+        className="
+          mb-2
+          flex
+          items-center
+          justify-between
+        "
+      >
+        <span
+          className="
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.1em]
+            text-[#493126]
+          "
+        >
+          {label}
+        </span>
+
+        {optional && (
+          <span
+            className="
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-wider
+              text-[#9a7965]
+            "
+          >
+            Optional
+          </span>
+        )}
+      </div>
+
+      {/* THICK BOX */}
+
+      <div
+        className={`
+          group
+          flex
+          overflow-hidden
+          rounded-xl
+
+          border-2
+          border-[#c9a78d]
+
+          bg-white
+
+          shadow-[0_3px_10px_rgba(73,49,38,0.05)]
+
+          transition-all
+          duration-200
+
+          focus-within:border-[#a65332]
+          focus-within:shadow-[0_0_0_3px_rgba(166,83,50,0.10)]
+
+          hover:border-[#b47a5c]
+
+          ${
+            textarea
+              ? "items-start"
+              : "items-stretch"
+          }
+        `}
+      >
+        {/* ICON BOX */}
+
+        <div
+          className={`
+            flex
+            w-[52px]
+            shrink-0
+            justify-center
+
+            border-r-2
+            border-[#e1c8b5]
+
+            bg-[#f4e5d5]
+
+            text-[#a65332]
+
+            transition-colors
+
+            group-focus-within:bg-[#493126]
+            group-focus-within:text-[#fffaf3]
+
+            ${
+              textarea
+                ? "items-start pt-[17px]"
+                : "items-center"
+            }
+          `}
+        >
+          <Icon
+            size={17}
+            strokeWidth={2}
+          />
+        </div>
+
+        {/* INPUT */}
+
+        <div className="min-w-0 flex-1">
+          {children}
+        </div>
+      </div>
+    </label>
+  );
+}
