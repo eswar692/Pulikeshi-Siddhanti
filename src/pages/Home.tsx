@@ -20,18 +20,22 @@ import VideoTestimonials from "../Genaral/testimonialVideo";
 import PoojaGallery from "../Genaral/img-corosel";
 import AboutPulikeshi from "../Genaral/second-colomn";
 import PulikeshiAboutHighlight from "../Genaral/highlights";
+import Pulikeshi_Own from "../Genaral/face_videos";
 
 const Home = () => {
   return (
     <div className="flex flex-col w-full h-full bg-slate-950">
       <ImageView />  
       {/* <GuidanceSection/> */}
-
-      
-      <AboutPulikeshi/>
-      <PulikeshiAboutHighlight/>``
+      <Pulikeshi_Own/>
       <VideoTestimonials/>
       <PoojaGallery/>
+
+      <AboutPulikeshi/>
+      
+      
+      <PulikeshiAboutHighlight/>
+     
       
       
       <Problems />

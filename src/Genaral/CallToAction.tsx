@@ -6,17 +6,32 @@ import { phone_number, whatsapp_number } from "./secrete";
 
 const CallToAction = () => {
   return (
-    <>
+    <div
+      className="
+        fixed
+        bottom-6
+        left-1/2
+        z-50
+
+        flex
+        -translate-x-1/2
+        items-center
+        justify-center
+        gap-15
+
+        lg:hidden
+      "
+    >
       <WhatsappBtn />
       <CallBtn />
-    </>
+    </div>
   );
 };
 
 export default CallToAction;
 
 /* =========================================================
-   WHATSAPP — BOTTOM LEFT
+   WHATSAPP
 ========================================================= */
 
 const WhatsappBtn = () => {
@@ -27,18 +42,16 @@ const WhatsappBtn = () => {
       rel="noopener noreferrer"
       aria-label="Message on WhatsApp"
       className="
-        fixed
-        bottom-6
-        left-5
-        z-50
-
+        relative
         flex
         h-[58px]
         w-[58px]
+        shrink-0
         items-center
         justify-center
 
         rounded-full
+
         bg-gradient-to-br
         from-green-400
         via-green-500
@@ -47,8 +60,6 @@ const WhatsappBtn = () => {
         text-white
 
         shadow-[0_8px_30px_rgba(34,197,94,0.45)]
-
-        lg:hidden
       "
       animate={{
         y: [0, -5, 0],
@@ -118,7 +129,7 @@ const WhatsappBtn = () => {
         "
       />
 
-      {/* INNER GLASS */}
+      {/* INNER BORDER */}
       <span
         className="
           pointer-events-none
@@ -130,7 +141,6 @@ const WhatsappBtn = () => {
         "
       />
 
-      {/* ICON */}
       <MessagesSquare
         className="
           relative
@@ -146,7 +156,7 @@ const WhatsappBtn = () => {
 };
 
 /* =========================================================
-   CALL — BOTTOM RIGHT
+   CALL
 ========================================================= */
 
 const CallBtn = () => {
@@ -155,18 +165,16 @@ const CallBtn = () => {
       href={`tel:${phone_number}`}
       aria-label="Call Now"
       className="
-        fixed
-        bottom-6
-        right-5
-        z-50
-
+        relative
         flex
         h-[58px]
         w-[58px]
+        shrink-0
         items-center
         justify-center
 
         rounded-full
+
         bg-gradient-to-br
         from-[#e9a94f]
         via-[#d87838]
@@ -175,8 +183,6 @@ const CallBtn = () => {
         text-white
 
         shadow-[0_8px_30px_rgba(185,77,45,0.42)]
-
-        lg:hidden
       "
       animate={{
         y: [0, -5, 0],
@@ -248,7 +254,7 @@ const CallBtn = () => {
         "
       />
 
-      {/* INNER GLASS */}
+      {/* INNER BORDER */}
       <span
         className="
           pointer-events-none
@@ -260,7 +266,6 @@ const CallBtn = () => {
         "
       />
 
-      {/* PHONE ICON */}
       <motion.span
         className="relative z-10 flex"
         animate={{

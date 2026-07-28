@@ -53,7 +53,7 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const Logo = "/logo.png";
+const Logo = "https://res.cloudinary.com/di7evjrx6/image/upload/v1785250925/WhatsApp_Image_2026-07-27_at_8.02.14_PM_fnctxp.jpg";
 
 /* =========================================================
    HEADER VISIBILITY
@@ -368,10 +368,10 @@ export default function Header() {
                 alt={company_name}
                 className="
                   relative
-                  z-10
-                  h-10
-                  w-10
-                  object-contain
+                  z-13
+                  h-12
+                  w-12
+                  rounded-full
                 "
               />
             </div>

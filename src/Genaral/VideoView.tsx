@@ -311,23 +311,24 @@ export default function Hero() {
           "
         >
 
-          {/* ==============================
-              LEFT CONTENT
-          ============================== */}
-         <div className="relative max-w-2xl">
+ {/* ==============================
+    LEFT CONTENT
+============================== */}
+
+<div className="relative max-w-2xl">
 
   {/* ==========================================
       EYEBROW
   ========================================== */}
-  <div className="mb-7 flex items-center gap-3">
-    <span className="h-px w-9 bg-[#9b6842]" />
+  <div className="mb-8 flex items-center gap-3">
+    <span className="h-[2px] w-10 rounded-full bg-[#9b6842]" />
 
     <span
       className="
-        text-[10px]
+        text-[11px]
         font-bold
         uppercase
-        tracking-[0.28em]
+        tracking-[0.24em]
         text-[#805738]
       "
     >
@@ -343,13 +344,13 @@ export default function Hero() {
 
     <span
       className="
-        mb-2
+        mb-3
         block
-        text-[10px]
+        text-[11px]
         font-semibold
         uppercase
         tracking-[0.2em]
-        text-[#a97852]
+        text-[#9a6746]
       "
     >
       Guidance for every challenge
@@ -357,68 +358,92 @@ export default function Hero() {
 
     <h1
       className="
+        max-w-2xl
         font-serif
-        text-[42px]
-        font-medium
-        leading-[1.05]
+        text-[44px]
+        font-semibold
+        leading-[1.08]
         tracking-[-0.035em]
         text-[#38281f]
-        sm:text-5xl
-        lg:text-[58px]
+
+        sm:text-[52px]
+        lg:text-[60px]
       "
     >
-      Your problem.
+    
+      YOUR PROBLEM.
 
-      <span
-        className="
-          ml-2
-          italic
-          text-[#a74d2e]
-        "
-      >
-        Our solution.
+      <span className="ml-2 italic text-[#a74d2e]">
+        
+        OUR SOLUTION
       </span>
     </h1>
+
   </div>
 
 
   {/* ==========================================
-      02 — TELUGU STATEMENT
+      02 — TELUGU PRIMARY STATEMENT
   ========================================== */}
   <div
     className="
       relative
-      my-7
+      my-8
       overflow-hidden
-      rounded-[20px]
+      rounded-[22px]
       border
-      border-[#9b6842]/10
-      bg-white/35
-      px-5
-      py-4
+      border-[#8b5d3b]/15
+      bg-[#fff8e7]/45
+      px-6
+      py-5
+      shadow-[0_8px_30px_rgba(90,55,30,0.05)]
       backdrop-blur-sm
-      sm:px-6
+
+      sm:px-7
+      sm:py-6
     "
   >
-    {/* little accent */}
+
+    {/* LEFT ACCENT */}
     <span
       className="
         absolute
-        bottom-0
+        bottom-4
         left-0
-        top-0
-        w-[3px]
+        top-4
+        w-[4px]
+        rounded-r-full
         bg-[#a74d2e]
+      "
+    />
+
+    {/* SOFT GLOW */}
+    <div
+      className="
+        pointer-events-none
+        absolute
+        -right-12
+        -top-14
+        h-36
+        w-36
+        rounded-full
+        bg-[#e4a15b]/15
+        blur-[40px]
       "
     />
 
     <h2
       className="
-        text-[22px]
+        font-ramabhadra
+        relative
+        text-[28px]
         font-semibold
-        leading-relaxed
-        text-[#4b3427]
-        sm:text-[27px]
+        leading-[1.65]
+        text-[#493126]
+
+        sm:text-[32px]
+        md:text-[34px]
+        lg:text-[36px]
       "
     >
       సమస్య మీది...
@@ -427,22 +452,23 @@ export default function Hero() {
         పరిష్కారం మాది
       </span>
     </h2>
+
   </div>
 
 
   {/* ==========================================
-      03 — EVERY PROBLEM / HAS A SOLUTION
-      SPLIT TYPOGRAPHY
+      03 — ENGLISH STATEMENT
   ========================================== */}
-  <div className="my-7">
+  <div className="my-9">
 
-    <div className="flex items-center gap-3">
+    <div className="mb-3 flex items-center gap-4">
+
       <span
         className="
-          text-[11px]
+          text-[34px]
           font-bold
           uppercase
-          tracking-[0.25em]
+          tracking-[0.22em]
           text-[#6c4a34]
         "
       >
@@ -454,105 +480,55 @@ export default function Hero() {
           h-px
           flex-1
           bg-gradient-to-r
-          from-[#9b6842]/40
+          from-[#9b6842]/50
           to-transparent
         "
       />
+
     </div>
 
-    <div
+    <h2
       className="
-        mt-2
         font-serif
-        text-3xl
+        text-[34px]
         font-semibold
         italic
-        tracking-[-0.02em]
+        leading-tight
+        tracking-[-0.025em]
         text-[#a74d2e]
-        sm:text-4xl
+
+        sm:text-[40px]
+        lg:text-[44px]
       "
     >
-      Has a Solution.
-    </div>
+      
+      HAS SOLUTION.
+    </h2>
 
   </div>
 
 
-  {/* ==========================================
-      04 — SAME HEADING, DIFFERENT APPEARANCE
-  ========================================== */}
-  <div
-    className="
-      my-7
-      inline-flex
-      flex-wrap
-      items-center
-      gap-x-3
-      gap-y-2
-      rounded-full
-      border
-      border-[#765037]/15
-      bg-[#493126]
-      px-5
-      py-3
-      shadow-[0_8px_25px_rgba(60,40,25,0.12)]
-      sm:px-6
-    "
-  >
-    <span
-      className="
-        text-[11px]
-        font-semibold
-        uppercase
-        tracking-[0.18em]
-        text-white/60
-      "
-    >
-      Every Problem
-    </span>
-
-    <span
-      className="
-        hidden
-        h-1
-        w-1
-        rounded-full
-        bg-[#e2b27e]
-        sm:block
-      "
-    />
-
-    <span
-      className="
-        font-serif
-        text-[16px]
-        font-semibold
-        italic
-        text-[#f5d4ad]
-        sm:text-lg
-      "
-    >
-      Has a Solution
-    </span>
-  </div>
+  
 
 
   {/* ==========================================
-      05 — FINAL TELUGU HEADING
+      05 — TELUGU FINAL STATEMENT
   ========================================== */}
-  <div className="relative my-8">
+  <div className="relative my-9">
 
+    {/* BACKGROUND GLOW */}
     <div
       className="
+        pointer-events-none
         absolute
-        -left-4
+        -left-8
         top-1/2
-        h-20
-        w-20
+        h-32
+        w-32
         -translate-y-1/2
         rounded-full
         bg-[#e2a85f]/20
-        blur-2xl
+        blur-[35px]
       "
     />
 
@@ -560,72 +536,59 @@ export default function Hero() {
 
       <span
         className="
-          mb-2
+          mb-3
           block
-          text-[9px]
+          text-[34px]
           font-bold
           uppercase
-          tracking-[0.3em]
-          text-[#9b6842]/70
+          tracking-[0.10em]
+          text-[#8b6041]
         "
       >
-        Every challenge has a way forward
+        
+        EVERY CHALLENGE HAS A WAY FORWARD
       </span>
 
       <h2
         className="
-          max-w-xl
-          text-[25px]
-          font-bold
-          leading-[1.5]
-          text-[#3e2b21]
-          sm:text-[30px]
+          font-ramabhadra
+          max-w-2xl
+          text-[29px]
+          font-semibold
+          leading-[1.65]
+          text-[#493126]
+
+          sm:text-[33px]
+          md:text-[35px]
+          lg:text-[37px]
         "
       >
         ప్రతి సమస్యకూ...
 
-        <span
-          className="
-            ml-2
-            text-[#a74d2e]
-          "
-        >
+        <span className="ml-2 text-[#a74d2e]">
           ఒక పరిష్కారం ఉంటుంది
         </span>
       </h2>
 
       <div
         className="
-          mt-3
-          h-[2px]
-          w-20
+          mt-4
+          h-[3px]
+          w-24
           rounded-full
           bg-gradient-to-r
           from-[#a74d2e]
+          via-[#c77748]
           to-transparent
         "
       />
 
     </div>
+
   </div>
 
 
-  {/* ==========================================
-      DESCRIPTION
-  ========================================== */}
-  <p
-    className="
-      mt-7
-      max-w-lg
-      text-[15px]
-      leading-7
-      text-[#583c28]/70
-    "
-  >
-    Through deep astrological analysis, we help you with personalised
-    life guidance &amp; to understand the &lsquo;why&rsquo; behind your
-    patterns, decisions, and experiences.
-  </p>
+
 
 
   {/* ==========================================
@@ -635,22 +598,22 @@ export default function Hero() {
     href="/book"
     className="
       group
-      mt-8
+      mt-9
       hidden
       w-fit
       items-center
-      gap-5
+      gap-6
       rounded-full
       bg-[#422d23]
-      py-2
-      pl-6
-      pr-2
+      py-2.5
+      pl-7
+      pr-2.5
       text-[12px]
-      font-semibold
+      font-bold
       uppercase
       tracking-[0.12em]
       text-white
-      shadow-[0_10px_30px_rgba(60,40,25,0.18)]
+      shadow-[0_12px_35px_rgba(60,40,25,0.2)]
       transition-all
       duration-300
 
@@ -665,24 +628,24 @@ export default function Hero() {
     <span
       className="
         flex
-        h-9
-        w-9
+        h-10
+        w-10
         items-center
         justify-center
         rounded-full
-        bg-white
+        bg-[#fff8e8]
         text-[#422d23]
         transition-transform
         duration-300
-        group-hover:translate-x-0.5
+
+        group-hover:translate-x-1
       "
     >
-      <ArrowRight size={16} />
+      <ArrowRight size={17} />
     </span>
   </a>
 
 </div>
-
 
           {/* ==============================
               DESKTOP PORTRAIT
