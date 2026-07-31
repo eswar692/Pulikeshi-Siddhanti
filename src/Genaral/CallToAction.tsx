@@ -1,6 +1,6 @@
 "use client";
 
-import {  MessageCircle, PhoneCall } from "lucide-react";
+import {   PhoneCall } from "lucide-react";
 import { motion } from "motion/react";
 import { phone_number, whatsapp_number } from "./secrete";
 import { FaWhatsapp } from "react-icons/fa";

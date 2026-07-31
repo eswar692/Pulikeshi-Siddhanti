@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, PhoneCall, ArrowUpRight } from "lucide-react";
+import { MessageCircle, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
 import { phone_number, whatsapp_number } from "./secrete";
 
