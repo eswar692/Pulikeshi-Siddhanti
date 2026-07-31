@@ -10,8 +10,36 @@ type VideoTestimonial = {
 };
 
 const videoTestimonials: VideoTestimonial[] = [
+   {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037531/IMG_1709_mir416.mov",
+    poster: "",
+  },
   {
     src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1784878354/IMG_1708_gtz8uu.mov",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785038266/img-1712_v2BvK7jt_tbcvva.mp4",
+    poster: "",
+  },
+  {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037487/IMG_1956_ltae7g.mov",
+    poster: "",
+  },
+   {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785464038/compressed-video_tapz6q.mp4",
+    poster: "",
+  },
+   {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037883/img-1722_IQjvRh2X_ntrc3d.mp4",
+    poster: "",
+  },
+   {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037440/IMG_1890_msjllw.mov",
+    poster: "",
+  },
+   {
+    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037339/IMG_1692_ptyz59.mov",
     poster: "",
   },
   {
@@ -22,34 +50,16 @@ const videoTestimonials: VideoTestimonial[] = [
     src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037189/IMG_1886_ncuhf3.mov",
     poster: "",
   },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037339/IMG_1692_ptyz59.mov",
-    poster: "",
-  },
+ 
   {
     src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037384/IMG_1719_rrsvq8.mov",
     poster: "",
   },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037440/IMG_1890_msjllw.mov",
-    poster: "",
-  },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037487/IMG_1956_ltae7g.mov",
-    poster: "",
-  },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037531/IMG_1709_mir416.mov",
-    poster: "",
-  },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037883/img-1722_IQjvRh2X_ntrc3d.mp4",
-    poster: "",
-  },
-  {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785038266/img-1712_v2BvK7jt_tbcvva.mp4",
-    poster: "",
-  },
+ 
+  
+ 
+ 
+  
 ];
 
 function VideoTile({
@@ -296,12 +306,12 @@ export default function VideoTestimonials() {
               font-serif
               text-4xl
               font-bold
-              tracking-tight
+              montserrat
               text-[#302a25]
               md:text-5xl
             "
           >
-            Client Video Stories
+            HAPPY CLIENTS FROM PULIKESHI GURUJI
           </h2>
 
           <p

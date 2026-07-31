@@ -1,37 +1,23 @@
 "use client";
 
-import { MessagesSquare, PhoneCall } from "lucide-react";
+import {  MessageCircle, PhoneCall } from "lucide-react";
 import { motion } from "motion/react";
 import { phone_number, whatsapp_number } from "./secrete";
+import { FaWhatsapp } from "react-icons/fa";
 
 const CallToAction = () => {
   return (
-    <div
-      className="
-        fixed
-        bottom-6
-        left-1/2
-        z-50
-
-        flex
-        -translate-x-1/2
-        items-center
-        justify-center
-        gap-15
-
-        lg:hidden
-      "
-    >
+    <>
       <WhatsappBtn />
       <CallBtn />
-    </div>
+    </>
   );
 };
 
 export default CallToAction;
 
 /* =========================================================
-   WHATSAPP
+   WHATSAPP — LEFT + VERTICAL CENTER
 ========================================================= */
 
 const WhatsappBtn = () => {
@@ -42,11 +28,15 @@ const WhatsappBtn = () => {
       rel="noopener noreferrer"
       aria-label="Message on WhatsApp"
       className="
-        relative
+        fixed
+        left-4
+        top-1/2
+        z-50
+
         flex
-        h-[58px]
-        w-[58px]
-        shrink-0
+        h-[70px]
+        w-[70px]
+        -translate-y-1/2
         items-center
         justify-center
 
@@ -60,9 +50,10 @@ const WhatsappBtn = () => {
         text-white
 
         shadow-[0_8px_30px_rgba(34,197,94,0.45)]
+
+        lg:hidden
       "
       animate={{
-        y: [0, -5, 0],
         scale: [1, 1.06, 1],
       }}
       whileTap={{
@@ -137,26 +128,26 @@ const WhatsappBtn = () => {
           inset-[3px]
           rounded-full
           border
-          border-white/25
+          border-white/30
         "
       />
 
-      <MessagesSquare
-        className="
-          relative
-          z-10
-          h-[27px]
-          w-[27px]
-          drop-shadow-md
-        "
-        strokeWidth={2.2}
-      />
+   <FaWhatsapp
+  className="
+    relative
+    z-10
+    h-[30px]
+    w-[30px]
+    text-white
+    drop-shadow-md
+  "
+/>
     </motion.a>
   );
 };
 
 /* =========================================================
-   CALL
+   CALL — RIGHT + VERTICAL CENTER
 ========================================================= */
 
 const CallBtn = () => {
@@ -165,11 +156,15 @@ const CallBtn = () => {
       href={`tel:${phone_number}`}
       aria-label="Call Now"
       className="
-        relative
+        fixed
+        right-4
+        top-1/2
+        z-50
+
         flex
-        h-[58px]
-        w-[58px]
-        shrink-0
+        h-[70px]
+        w-[70px]
+        -translate-y-1/2
         items-center
         justify-center
 
@@ -183,9 +178,10 @@ const CallBtn = () => {
         text-white
 
         shadow-[0_8px_30px_rgba(185,77,45,0.42)]
+
+        lg:hidden
       "
       animate={{
-        y: [0, -5, 0],
         scale: [1, 1.06, 1],
       }}
       whileTap={{
@@ -262,10 +258,11 @@ const CallBtn = () => {
           inset-[3px]
           rounded-full
           border
-          border-white/25
+          border-white/30
         "
       />
 
+      {/* PHONE ANIMATION */}
       <motion.span
         className="relative z-10 flex"
         animate={{
