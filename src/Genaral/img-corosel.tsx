@@ -16,7 +16,7 @@ type FamilyPhoto = {
 
 const familyPhotos: FamilyPhoto[] = [
    { src: "/IMG_6801.png" },
-   
+    {src:"https://res.cloudinary.com/di7evjrx6/image/upload/v1785463583/IMG_20260718_101659.jpg_rsf7in.jpg"},
   { src: "/IMG_6799.png" },
  
   { src: "/IMG_6805.png" },
