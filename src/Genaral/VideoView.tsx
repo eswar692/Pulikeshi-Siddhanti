@@ -53,7 +53,6 @@ export default function Hero() {
     <div
       className="
         relative
-        min-h-screen
         overflow-hidden
         bg-[#F5C65B]
       "

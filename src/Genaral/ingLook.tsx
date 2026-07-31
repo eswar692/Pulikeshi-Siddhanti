@@ -17,7 +17,7 @@ const ImgBonding = () => {
         overflow-hidden
         bg-[#fffaf3]
         px-2
-        py-16
+        py-5
         sm:px-6
         md:py-24
       "
