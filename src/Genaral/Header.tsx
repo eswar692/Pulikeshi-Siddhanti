@@ -53,7 +53,7 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const Logo = "https://res.cloudinary.com/di7evjrx6/image/upload/v1785250925/WhatsApp_Image_2026-07-27_at_8.02.14_PM_fnctxp.jpg";
+const Logo = "pulikeshi-short.png";
 
 /* =========================================================
    HEADER VISIBILITY

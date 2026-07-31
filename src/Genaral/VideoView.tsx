@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
+import { phone_number } from "./secrete";
 
 const pulikeshi_img = "pulikeshi.png";
 const pulikeshi_short_img = "pulikeshi-short.png";
@@ -291,6 +292,75 @@ export default function Hero() {
         </div>
 
 
+        
+        {/* ==================================================
+            Phone Number
+        ================================================== */}
+
+   
+
+<div className="opensans flex items-center justify-center ">
+  <a
+    href={`tel:${phone_number}`}
+    className="
+      group
+      inline-flex
+      items-center
+      gap-2.5
+      rounded-full
+      border
+      border-[#a74d2e]/15
+      bg-[#fff7ed]
+      px-4
+      py-2.5
+      text-[#493126]
+      shadow-[0_5px_18px_rgba(73,49,38,0.08)]
+      transition-all
+      duration-300
+      hover:-translate-y-0.5
+      hover:border-[#a74d2e]/30
+      hover:bg-[#fff2e3]
+      hover:shadow-[0_8px_24px_rgba(73,49,38,0.12)]
+    "
+  >
+    {/* CALL ICON */}
+    <span
+      className="
+        flex
+        h-8
+        w-8
+        items-center
+        justify-center
+        rounded-full
+        bg-[#a74d2e]
+        text-white
+        shadow-[0_4px_12px_rgba(167,77,46,0.25)]
+        transition-transform
+        duration-300
+        group-hover:scale-105
+      "
+    >
+      <Phone size={15} strokeWidth={2.3} />
+    </span>
+
+    {/* NUMBER */}
+    <span
+      className="
+        text-[18px]
+        font-semibold
+        tracking-[0.03em]
+        sm:text-[15px]
+      "
+    >
+      {phone_number}
+    </span>
+  </a>
+</div>
+
+
+
+
+
         {/* ==================================================
             MAIN GRID
         ================================================== */}
@@ -315,7 +385,7 @@ export default function Hero() {
     LEFT CONTENT
 ============================== */}
 
-<div className="relative max-w-2xl">
+<div className="relative max-w-2xl hidden md:block">
 
   {/* ==========================================
       EYEBROW
@@ -646,6 +716,9 @@ export default function Hero() {
   </a>
 
 </div>
+
+
+
 
           {/* ==============================
               DESKTOP PORTRAIT
