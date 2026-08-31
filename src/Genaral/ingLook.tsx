@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import { phone_number, whatsapp_number } from "./secrete";
 
 const images = [
-  "https://res.cloudinary.com/di7evjrx6/image/upload/v1785464201/WhatsApp_Image_2026-07-29_at_7.22.46_AM_qlpf8e.jpg",
-  "https://res.cloudinary.com/di7evjrx6/image/upload/v1785464187/WhatsApp_Image_2026-07-29_at_7.23.05_AM_x3mgx3.jpg",
+  "/img-514952.jpeg",
+  "/img-6482.jpeg",
 ];
+
 
 const ImgBonding = () => {
   return (

@@ -13,15 +13,15 @@ type GurujiVideo = {
 
 const videos: GurujiVideo[] = [
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785255051/img-1959_OYQx6RuZ_gsbokx.mp4",
+    src: "/img-1959_OYQx6RuZ.mp4",
     title: "Guidance & Insights",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785254269/IMG_1960_ga2ndv.mov",
+    src: "/IMG_1960.MOV",
     title: "Astrology Guidance",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785256207/IMG_1961-compressed_1_xywo5g.mp4",
+    src: "/IMG_1961-compressed (1).mp4",
     title: "Life & Relationships",
   },
   

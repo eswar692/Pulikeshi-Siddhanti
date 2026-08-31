@@ -74,31 +74,31 @@ const PROBLEMS = [
   {
     title: "Love Problems",
     desc: "Discover accurate, personalized astrological remedies to resolve love conflicts and reconnect with your partner.",
-    img: "https://res.cloudinary.com/di7evjrx6/image/upload/v1785042413/WhatsApp_Image_2026-07-22_at_8.13.35_PM_zn7kan.jpg",
+    img: "/img-+498.jpeg",
     tag: "Emotional",
   },
   {
     title: "Marriage Problems",
     desc: "Guruji provides accurate horoscope matching and proven solutions to resolve ongoing husband-wife disputes.",
-    img: "https://res.cloudinary.com/di7evjrx6/image/upload/v1785042405/WhatsApp_Image_2026-07-22_at_8.19.02_PM_vuzu7u.jpg",
+    img: "/img-96456.jpeg",
     tag: "Harmony",
   },
   {
     title: "Wife and husband problems",
     desc: "Guruji offers targeted planetary remedies to eliminate frequent arguments and restore lasting peace in your home.",
-    img: "https://res.cloudinary.com/di7evjrx6/image/upload/v1785042394/WhatsApp_Image_2026-07-22_at_8.24.52_PM_uaiejp.jpg",
+    img: "/img-41963.jpeg",
     tag: "Growth",
   },
   {
     title: "Affair issue",
     desc: "Protect your marriage from third-party interference and restore complete loyalty",
-    img: "https://res.cloudinary.com/di7evjrx6/image/upload/v1785042386/WhatsApp_Image_2026-07-22_at_8.36.41_PM_wzq6uk.jpg",
+    img: "/img-549+5.jpeg",
     tag: "Clarity",
   },
   {
     title: "Destroy enemy",
     desc: "Guruji offers powerful Vedic protection remedies to overcome opponents and secure your peace of mind.",
-    img: "https://res.cloudinary.com/di7evjrx6/image/upload/v1785042380/WhatsApp_Image_2026-07-22_at_8.48.13_PM_wrl7bw.jpg",
+    img: "/img-21964.jpeg",
     tag: "Abundance",
   },
   

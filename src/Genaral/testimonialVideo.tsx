@@ -11,48 +11,45 @@ type VideoTestimonial = {
 
 const videoTestimonials: VideoTestimonial[] = [
    {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037531/IMG_1709_mir416.mov",
+    src: "/IMG_1709.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1784878354/IMG_1708_gtz8uu.mov",
+    src: "/IMG_1708_gtz8uu.mov",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785038266/img-1712_v2BvK7jt_tbcvva.mp4",
+    src: "/img-1712_v2BvK7jt.mp4",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037487/IMG_1956_ltae7g.mov",
+    src: "/IMG_1956.MOV",
     poster: "",
   },
    {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785464038/compressed-video_tapz6q.mp4",
+    src: "/compressed-video.mp4",
     poster: "",
   },
    {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037883/img-1722_IQjvRh2X_ntrc3d.mp4",
+    src: "/img-1722_IQjvRh2X.mp4",
     poster: "",
   },
+   
    {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037440/IMG_1890_msjllw.mov",
-    poster: "",
-  },
-   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037339/IMG_1692_ptyz59.mov",
+    src: "/IMG_1692.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037126/IMG_1710_zo2dqg.mov",
+    src: "/IMG_1710.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037189/IMG_1886_ncuhf3.mov",
+    src: "/IMG_1886.MOV",
     poster: "",
   },
  
   {
-    src: "https://res.cloudinary.com/di7evjrx6/video/upload/v1785037384/IMG_1719_rrsvq8.mov",
+    src: "/IMG_1719.MOV",
     poster: "",
   },
  
