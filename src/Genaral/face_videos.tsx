@@ -13,7 +13,7 @@ type GurujiVideo = {
 
 const videos: GurujiVideo[] = [
   {
-    src: "/img-1959_OYQx6RuZ.mp4",
+    src: "/img-1959_OYQx6RuZ-compressed.mp4",
     title: "Guidance & Insights",
   },
   {
