@@ -21,7 +21,7 @@ const videos: GurujiVideo[] = [
     title: "Astrology Guidance",
   },
   {
-    src: "/IMG_1961-compressed (1).mp4",
+    src: "/IMG_1961-compressed (1) (1).mp4",
     title: "Life & Relationships",
   },
   
