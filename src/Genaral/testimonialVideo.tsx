@@ -11,40 +11,44 @@ type VideoTestimonial = {
 
 const videoTestimonials: VideoTestimonial[] = [
    {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231559/IMG_1709.mov",
+    src: "IMG_1709.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231589/IMG_1708_gtz8uu.mov",
+    src: "IMG_1708_gtz8uu.mov",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231699/IMG_1956.mov",
+    src: "img-1712_v2BvK7jt.mp4",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231718/compressed-video.mp4",
+    src: "IMG_1956.MOV",
     poster: "",
   },
    {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231768/img-1722-iqjvrh2x_vnFjnBnm.mp4",
+    src: "compressed-video.mp4",
     poster: "",
   },
    {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231754/IMG_1692.mov",
+    src: "img-1722-iqjvrh2x_vnFjnBnm.mp4",
     poster: "",
   },
    
    {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231812/IMG_1710.mov",
+    src: "IMG_1692.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231841/IMG_1886.mov",
+    src: "IMG_1710.MOV",
     poster: "",
   },
   {
-    src: "https://res.cloudinary.com/vh8ix32j/video/upload/v1788231864/IMG_1719.mov",
+    src: "IMG_1886.MOV",
+    poster: "",
+  },
+  {
+    src: "IMG_1719.MOV",
     poster: "",
   },
  
